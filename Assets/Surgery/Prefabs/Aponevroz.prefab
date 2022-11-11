@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6148935458076674819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945703798584165306}
+  m_Layer: 0
+  m_Name: Aponevroz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945703798584165306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148935458076674819}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -3.2065954, y: 1.1204698, z: 0.089372925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5527974457419975587}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+--- !u!1001 &706497473596285113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1945703798584165306}
+    m_Modifications:
+    - target: {fileID: -7583926742294747977, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: -7583926742294747977, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: -5507822297060659624, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c45c4d664bce91a468ac8f1407a72b7f, type: 2}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3494024943921303244, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: -3494024943921303244, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: -2295279148747881556, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Name
+      value: Aponevroz
+      objectReference: {fileID: 0}
+    - target: {fileID: 129258255005559858, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973621468694942685, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: 3973621468694942685, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: 4240749636382200699, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92cfae04f5a14914eaa325855c22c989, type: 2}
+    - target: {fileID: 4504930150317058381, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077533231824570113, guid: ba84348493b1fe24caf292196567c8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba84348493b1fe24caf292196567c8a4, type: 3}
+--- !u!4 &5527974457419975587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ba84348493b1fe24caf292196567c8a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 706497473596285113}
+  m_PrefabAsset: {fileID: 0}
