@@ -7,17 +7,25 @@ using UnityEngine.SceneManagement;
 public class QuizManager : MonoBehaviour
 {
     public List<QuestionsAnsAnswers> QnA;
+    public AnswerScript answerScript;
+
+    public GameObject next;
     public GameObject[] options;
+    public GameObject[] answers;
+    public GameObject[] Toggle;
     public int currentQuestion;
 
     public GameObject Questions;
     public GameObject Results;
+    public GameObject QuetionNum;
 
     public Text QuestionTxt;
     public Text ResultsTxt;
 
     public int totalQuestions = 0;
     public int rightQuestions;
+    public int NumQuestion=0;
+    public bool[] isRightOption = new bool[4];
 
     private void Start()
     {
@@ -25,9 +33,52 @@ public class QuizManager : MonoBehaviour
         Results.SetActive(false);
         generateQuestion();
     }
+    private void Update()
+    {
+       
+    }
     public void GoMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    void onClick()
+    {
+        if (QnA.Count > 0)
+        {
+            if (QnA[currentQuestion].CorrectAnswer.Length == 1)
+            {
+                for (int i = 0; i < options.Length; i++)
+                {
+                    Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0]);
+                    if ((options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && (i + 1 == QnA[currentQuestion].CorrectAnswer[0]))
+                    {
+                        next.GetComponent<AnswerScript>().isCorrect = true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < options.Length; i++)
+                {
+                    if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true && (i + 1 == QnA[currentQuestion].CorrectAnswer[0]))
+                    {
+                        for (int j = i + 1; j < options.Length; j++)
+                        {
+                            Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0] + " Правильный ли второй " + options[j].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер второго: " + j + " правильный ответ второго: " + QnA[currentQuestion].CorrectAnswer[1]);
+                            if ((options[j].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && (j + 1 == QnA[currentQuestion].CorrectAnswer[1]))
+                            {
+                                next.GetComponent<AnswerScript>().isCorrect = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }      
+    }
+    public void Checking() 
+    {
+        onClick();
     }
 
      void GameOver()
@@ -43,7 +94,7 @@ public class QuizManager : MonoBehaviour
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
-
+    
     public void wrong()
     {
         QnA.RemoveAt(currentQuestion);
@@ -54,12 +105,8 @@ public class QuizManager : MonoBehaviour
     {
         for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
-            if (QnA[currentQuestion].CorrectAnswer == i+1)
-            {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
-            }
+            next.GetComponent<AnswerScript>().isCorrect = false;
+            answers[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];  
         }
     }
     void generateQuestion()
@@ -67,8 +114,17 @@ public class QuizManager : MonoBehaviour
         if (QnA.Count>0)
         {
             currentQuestion = Random.Range(0, QnA.Count);
-
             QuestionTxt.text = QnA[currentQuestion].Question;
+            NumQuestion++;
+            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
+            for (int i = 0; i < isRightOption.Length; i++)
+            {
+                isRightOption[i] = false;
+            }
+            for (int i = 0; i < options.Length; i++)
+            {
+               options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+            }
             SetAnswers();
         }
         else
@@ -77,7 +133,14 @@ public class QuizManager : MonoBehaviour
             GameOver();
         }
 
-         
+
+    }
+
+    public enum QuestionType 
+    { 
+        TextAnswerAndOption,
+        TextAnswerOptionImg,
+        ImgAnswerOptionText
     }
 
 }
