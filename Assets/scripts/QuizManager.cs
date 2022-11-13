@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
-    
+    //Ссылки на др скрипты
     public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
-
+    //Ссылки на объекты в юнити
     public GameObject next;
     public GameObject[] options;
     public GameObject[] answers;
@@ -25,7 +25,7 @@ public class QuizManager : MonoBehaviour
 
     public Text QuestionTxt;
     public Text ResultsTxt;
-
+   //Переменные для различных целей
     public int totalQuestions = 0;
     public int rightQuestions;
     public int NumQuestion=0;
@@ -34,31 +34,40 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         totalQuestions = QnA.Count;
+        //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
         generateQuestion();
     }
+    //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
     void onClick()
     {
+        //Проверяет есть ли ещё вопросы в тесте
         if (QnA.Count > 0)
         {
+            //Проверка сколько правильных вариантов ответа в тесте (один)
             if (QnA[currentQuestion].CorrectAnswer.Length == 1)
             {              
+                //Цикл перебора всех кнопок с вариантами ответов
                 for (int i = 0; i < options.Length; i++)
                 {
+                    //Проверка включен ли checkbox
                     if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
                     {
                         count++;
+                        //Проверка включен ли checkbox и является ли он правильным ответов
                         if (((options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && (i + 1 == QnA[currentQuestion].CorrectAnswer[0]))&&count==1)
                         {
+                            //Передача true для isCorrect в скрипте AnswerScript
                             next.GetComponent<AnswerScript>().isCorrect = true;
                         }
                     }
                     //Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0]);                   
                 }
             }
+            //Проверка сколько правильных вариантов ответа в тесте (два)
             else
             {
-               
+                //Цикл перебора всех кнопок с вариантами ответов
                 for (int i = 0; i < options.Length; i++)
                 {
                     count = 0;
@@ -67,6 +76,7 @@ public class QuizManager : MonoBehaviour
                         if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true && (i + 1 == QnA[currentQuestion].CorrectAnswer[0]))
                         {
                             count++;
+                            //Цикл перебора всех кнопок с вариантами ответов для проверки второй кнопки на правильность
                             for (int j = i + 1; j < options.Length; j++)
                             {                              
                                 //Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0] + " Правильный ли второй " + options[j].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер второго: " + j + " правильный ответ второго: " + QnA[currentQuestion].CorrectAnswer[1]);
@@ -89,37 +99,43 @@ public class QuizManager : MonoBehaviour
             }
         }      
     }
+    //Скрипт для вызова onClick
     public void Checking() 
     {
         onClick();
     }
 
+    //Скрипт когда вопросов не осталось
      void GameOver()
     {
         Questions.SetActive(false); 
         Results.SetActive(true);
         ResultsTxt.text = rightQuestions + "/" + totalQuestions;
     }
-
+    //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()
     {
         rightQuestions++;
+        //Удаляет текущий вопрос, чтобы он не повторялся в будущем
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
-    
+    //Скрипт для неправильного ответа и генерации нового вопроса
     public void wrong()
     {
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
-
+    //Скрипт для установки определённых текста/ картинок для каждого типа вопроса
     void SetAnswers()
     {       
+        //Если в вопросе варианты ответа и сам вопрос текстовые
         if (QnA[currentQuestion].questionType.ToString() == "TextQuestionAndOption")
         {
+            //Строки идущие до цикла устанавливают видимость определённых частей интерфейса в зависимости от его типа, а также меняют картинку, текст и цвет текста
             TextOfQuestion.SetActive(false);
-            QuestionImg.SetActive(false);   
+            QuestionImg.SetActive(false);  
+            //В цикле устанавливают видимость для элементов интерфейса, отвечающих за варианты ответа и задают им картинки/текст/цвет и т.д. в зависимости от типа вопроса
             for (int i = 0; i < options.Length; i++)
             {
                 answersImg[i].SetActive(true);
@@ -131,6 +147,7 @@ public class QuizManager : MonoBehaviour
                 answers[i].GetComponent<Text>().text = $"{i+1}. "+QnA[currentQuestion].Answers[i];
             }
         }
+        //Если в вопросе нужно дополнить текст недостающими словами
         if (QnA[currentQuestion].questionType.ToString() == "WriteWords")
         {
             TextOfQuestion.SetActive(true);
@@ -146,6 +163,7 @@ public class QuizManager : MonoBehaviour
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
+        //Если в вопросе сам вопрос текстовый а варианты ответа картинки
         if (QnA[currentQuestion].questionType.ToString() == "QuestionTextOptionImg")
         {
             TextOfQuestion.SetActive(false);
@@ -160,6 +178,7 @@ public class QuizManager : MonoBehaviour
                 next.GetComponent<AnswerScript>().isCorrect = false;                
             }
         }
+        //Если в вопросе сам вопрос картинка а варианты текстовые
         if (QnA[currentQuestion].questionType.ToString() == "OptionTextQuestionImg")
         {
             TextOfQuestion.SetActive(false);          
@@ -175,21 +194,28 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
+    //Скрипт для генерации нового вопроса
     void generateQuestion()
     {
+        //Если ещё есть вопросы в массиве
         if (QnA.Count>0)
         {
+            //Рандомизация вопроса
             currentQuestion = Random.Range(0, QnA.Count);
+            //Для условия вопроса
             QuestionTxt.text = QnA[currentQuestion].Question;
             NumQuestion++;
             count = 0;
-            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();           
+            //Для номера вопроса
+            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();    
+            //Установление всех checkbox в отключенное состояние
             for (int i = 0; i < options.Length; i++)
             {
                options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
             }
             SetAnswers();
         }
+        //Если пользователь ответил на все вопросы
         else
         {
             Debug.Log("Vse");
