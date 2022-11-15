@@ -4451,7 +4451,10 @@ MonoBehaviour:
   totalQuestions: 0
   rightQuestions: 0
   NumQuestion: 0
+<<<<<<< HEAD
   isRightOption: 00000000
+=======
+>>>>>>> parent of f4f9e31 (Таймер)
 --- !u!4 &1228308280
 Transform:
   m_ObjectHideFlags: 0

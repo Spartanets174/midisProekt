@@ -9,6 +9,11 @@ public class QuizManager : MonoBehaviour
     public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
 
+<<<<<<< HEAD
+=======
+    public Menu Menu;
+    //Ссылки на объекты в юнити
+>>>>>>> parent of f4f9e31 (РўР°Р№РјРµСЂ)
     public GameObject next;
     public GameObject[] options;
     public GameObject[] answers;
@@ -29,6 +34,7 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< HEAD
         totalQuestions = QnA.Count;
         Results.SetActive(false);
         generateQuestion();
@@ -40,6 +46,24 @@ public class QuizManager : MonoBehaviour
     public void GoMenu()
     {
         SceneManager.LoadScene("Menu");
+=======
+        if(Menu.CompetitiveQue == true)
+        {
+            totalQuestions = QnA.Count;
+        }
+
+        if(Menu.ControlAndStudy == true)
+        {
+            totalQuestions = 10;
+        }
+        
+        //Отключение окна интерфейса с результатами при старте
+        Results.SetActive(false);
+        generateQuestion();
+        Debug.Log(Menu.CompetitiveQue);
+        Debug.Log(Menu.ControlAndStudy);
+
+>>>>>>> parent of f4f9e31 (РўР°Р№РјРµСЂ)
     }
 
     void onClick()
