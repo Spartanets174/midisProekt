@@ -9,7 +9,6 @@ public class AnswerScript : MonoBehaviour
     public QuizManager quizManager;
     public bool isCorrect=true;
     public int count = 0;
-    //Скрипт для проверки правильно ли пользователь отвтил на вопрос или нет при нажатии на стрелку далее
     public void Answer()
     {      
         if (isCorrect)
@@ -23,7 +22,6 @@ public class AnswerScript : MonoBehaviour
             quizManager.wrong();
         }
     }
-    //Скрипт для включения или отклоючения checkbox'a в нажатой кнопки с помощбю метода onClick на кнопках с вариантами ответов
     void OnClick()
     {
         string nameButton = EventSystem.current.currentSelectedGameObject.name;
@@ -36,7 +34,6 @@ public class AnswerScript : MonoBehaviour
         }; 
         
     }
-    //Скрипт для вызова OnClick
     public void SetTrue()
     {
         OnClick();
