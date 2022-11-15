@@ -4012,6 +4012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e68a70ce45c34dbcd7f6aa3ba2fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CompetitiveQue: 0
+  ControlAndStudy: 0
 --- !u!1001 &984100970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4421,6 +4423,7 @@ GameObject:
   - component: {fileID: 1228308280}
   - component: {fileID: 1228308279}
   - component: {fileID: 1228308281}
+  - component: {fileID: 1228308282}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -4524,6 +4527,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1681cdc2d23063547946e95b41599fe7, type: 3}
     CorrectAnswer: 03000000
   answerScript: {fileID: 1228308281}
+  Menu: {fileID: 1228308282}
   next: {fileID: 670771107}
   options:
   - {fileID: 1360117141}
@@ -4556,6 +4560,7 @@ MonoBehaviour:
   totalQuestions: 0
   rightQuestions: 0
   NumQuestion: 0
+  count: 0
 --- !u!4 &1228308280
 Transform:
   m_ObjectHideFlags: 0
@@ -4586,6 +4591,20 @@ MonoBehaviour:
   quizManager: {fileID: 1228308279}
   isCorrect: 0
   count: 0
+--- !u!114 &1228308282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228308278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e68a70ce45c34dbcd7f6aa3ba2fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompetitiveQue: 0
+  ControlAndStudy: 0
 --- !u!1 &1267709105
 GameObject:
   m_ObjectHideFlags: 0

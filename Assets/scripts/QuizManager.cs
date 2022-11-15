@@ -9,7 +9,6 @@ public class QuizManager : MonoBehaviour
     //Ссылки на др скрипты
     public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
-
     public Menu Menu;
     //Ссылки на объекты в юнити
     public GameObject next;
@@ -33,24 +32,44 @@ public class QuizManager : MonoBehaviour
     public int NumQuestion=0;
     public int count = 0;
 
+    [SerializeField] private float time;
+    [SerializeField] private Text timerText;
+    private float _timeLeft = 180f;
     private void Start()
     {
-        if(Menu.CompetitiveQue == true)
+        //Установка максимального кол-ва вопросов в зависимости от режима
+        string sName = SceneManager.GetActiveScene().name;
+        if(sName == "Competitive")
         {
             totalQuestions = QnA.Count;
         }
-
-        if(Menu.ControlAndStudy == true)
+        if(sName == "Tutorial" || sName == "Control")
         {
             totalQuestions = 10;
-        }
-        
+        }        
         //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
         generateQuestion();
-        Debug.Log(Menu.CompetitiveQue);
-        Debug.Log(Menu.ControlAndStudy);
-
+        _timeLeft = time;
+        StartCoroutine(StartTimer());
+    }
+    //Скрипты для таймера
+    private IEnumerator StartTimer()
+    {
+        while (_timeLeft > 0)
+        {
+            _timeLeft -= Time.deltaTime;
+            UpdateTimeText();
+            yield return null;
+        }
+    }
+    private void UpdateTimeText()
+    {
+        if (_timeLeft < 0)
+            _timeLeft = 0;
+        float minutes = Mathf.FloorToInt(_timeLeft / 60);
+        float seconds = Mathf.FloorToInt(_timeLeft % 60);
+        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
     //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
     void onClick()
