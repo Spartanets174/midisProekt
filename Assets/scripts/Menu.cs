@@ -9,9 +9,9 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-    public void Atlas()
+    public void ToAtlas()
     {
-        SceneManager.LoadScene("Atlas");
+        SceneManager.LoadScene("AtlasMap");
     }
     public void Tutorial()
     {

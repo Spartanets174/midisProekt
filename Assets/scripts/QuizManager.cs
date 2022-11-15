@@ -9,6 +9,7 @@ public class QuizManager : MonoBehaviour
     //Ссылки на др скрипты
     public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
+    public Timer Timer;
     public Menu Menu;
     //Ссылки на объекты в юнити
     public GameObject next;
@@ -26,23 +27,17 @@ public class QuizManager : MonoBehaviour
 
     public Text QuestionTxt;
     public Text ResultsTxt;
+    public Text ResultsTime;
    //Переменные для различных целей
     public int totalQuestions = 0;
     public int rightQuestions;
     public int NumQuestion=0;
     public int count = 0;
 
-    [SerializeField] private float time;
-    [SerializeField] private Text timerText;
-    private float _timeLeft = 180f;
     private void Start()
     {
         //Установка максимального кол-ва вопросов в зависимости от режима
         string sName = SceneManager.GetActiveScene().name;
-        if(sName == "Competitive")
-        {
-            totalQuestions = QnA.Count;
-        }
         if(sName == "Tutorial" || sName == "Control")
         {
             totalQuestions = 10;
@@ -50,26 +45,18 @@ public class QuizManager : MonoBehaviour
         //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
         generateQuestion();
-        _timeLeft = time;
-        StartCoroutine(StartTimer());
     }
-    //Скрипты для таймера
-    private IEnumerator StartTimer()
+    private void Update()
     {
-        while (_timeLeft > 0)
+        string sName = SceneManager.GetActiveScene().name;
+        if (sName == "Competitive")
         {
-            _timeLeft -= Time.deltaTime;
-            UpdateTimeText();
-            yield return null;
+            if (Timer._timeLeft <= 0)
+            {
+                GameOver();
+            }
         }
-    }
-    private void UpdateTimeText()
-    {
-        if (_timeLeft < 0)
-            _timeLeft = 0;
-        float minutes = Mathf.FloorToInt(_timeLeft / 60);
-        float seconds = Mathf.FloorToInt(_timeLeft % 60);
-        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        
     }
     //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
     void onClick()
@@ -143,7 +130,16 @@ public class QuizManager : MonoBehaviour
     {
         Questions.SetActive(false); 
         Results.SetActive(true);
-        ResultsTxt.text = rightQuestions + "/" + totalQuestions;
+        string sName = SceneManager.GetActiveScene().name;
+        if (sName == "Tutorial" || sName == "Control")
+        {
+            ResultsTxt.text = rightQuestions + "/" + totalQuestions;
+            ResultsTime.text = $"Время прохождения: {Timer.timerText.text}";
+        }
+        else
+        {
+            ResultsTxt.text = $"{rightQuestions} / {NumQuestion-1}";
+        }
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()
@@ -230,30 +226,60 @@ public class QuizManager : MonoBehaviour
     //Скрипт для генерации нового вопроса
     void generateQuestion()
     {
+        string sName = SceneManager.GetActiveScene().name;
         //Если ещё есть вопросы в массиве
-        if (totalQuestions > NumQuestion)
+        if (sName == "Tutorial" || sName == "Control")
         {
-            //Рандомизация вопроса
-            currentQuestion = Random.Range(0, QnA.Count);
-            //Для условия вопроса
-            QuestionTxt.text = QnA[currentQuestion].Question;
-            NumQuestion++;
-            count = 0;
-            //Для номера вопроса
-            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();    
-            //Установление всех checkbox в отключенное состояние
-            for (int i = 0; i < options.Length; i++)
+            if (totalQuestions > NumQuestion)
             {
-               options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+                //Рандомизация вопроса
+                currentQuestion = Random.Range(0, QnA.Count);
+                //Для условия вопроса
+                QuestionTxt.text = QnA[currentQuestion].Question;
+                NumQuestion++;
+                count = 0;
+                //Для номера вопроса
+                QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
+                //Установление всех checkbox в отключенное состояние
+                for (int i = 0; i < options.Length; i++)
+                {
+                    options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+                }
+                SetAnswers();
             }
-            SetAnswers();
+            else
+            {
+                Debug.Log("Vse");
+                GameOver();
+            }
         }
-        //Если пользователь ответил на все вопросы
         else
         {
-            Debug.Log("Vse");
-            GameOver();
+            if (Timer._timeLeft >0)
+            {
+                //Рандомизация вопроса
+                currentQuestion = Random.Range(0, QnA.Count);
+                //Для условия вопроса
+                QuestionTxt.text = QnA[currentQuestion].Question;
+                NumQuestion++;
+                count = 0;
+                //Для номера вопроса
+                QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
+                //Установление всех checkbox в отключенное состояние
+                for (int i = 0; i < options.Length; i++)
+                {
+                    options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+                }
+                SetAnswers();
+            }
+            else
+            {
+                Debug.Log("Vse");
+                GameOver();
+            }
         }
+        //Если пользователь ответил на все вопросы
+        
     }
     public void GoMenu()
     {
