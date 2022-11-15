@@ -9,6 +9,8 @@ public class QuizManager : MonoBehaviour
     //Ссылки на др скрипты
     public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
+
+    public Menu Menu;
     //Ссылки на объекты в юнити
     public GameObject next;
     public GameObject[] options;
@@ -33,10 +35,22 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        totalQuestions = QnA.Count;
+        if(Menu.CompetitiveQue == true)
+        {
+            totalQuestions = QnA.Count;
+        }
+
+        if(Menu.ControlAndStudy == true)
+        {
+            totalQuestions = 10;
+        }
+        
         //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
         generateQuestion();
+        Debug.Log(Menu.CompetitiveQue);
+        Debug.Log(Menu.ControlAndStudy);
+
     }
     //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
     void onClick()
@@ -117,13 +131,13 @@ public class QuizManager : MonoBehaviour
     {
         rightQuestions++;
         //Удаляет текущий вопрос, чтобы он не повторялся в будущем
-        QnA.RemoveAt(currentQuestion);
+        //QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
     //Скрипт для неправильного ответа и генерации нового вопроса
     public void wrong()
     {
-        QnA.RemoveAt(currentQuestion);
+        //QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
     //Скрипт для установки определённых текста/ картинок для каждого типа вопроса
@@ -198,7 +212,7 @@ public class QuizManager : MonoBehaviour
     void generateQuestion()
     {
         //Если ещё есть вопросы в массиве
-        if (QnA.Count>0)
+        if (totalQuestions > NumQuestion)
         {
             //Рандомизация вопроса
             currentQuestion = Random.Range(0, QnA.Count);

@@ -1638,6 +1638,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376139794}
   m_Mesh: {fileID: -3014237722761425209, guid: b2c52ed288b817a45b1f2a0d2e487910, type: 3}
+--- !u!1 &420390635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420390638}
+  - component: {fileID: 420390637}
+  - component: {fileID: 420390636}
+  m_Layer: 5
+  m_Name: ImageQuestion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &420390636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420390635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &420390637
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420390635}
+  m_CullTransparentMesh: 1
+--- !u!224 &420390638
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420390635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1692722864}
+  m_Father: {fileID: 1767862733}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00023341179, y: -0.0001077652}
+  m_SizeDelta: {x: 1000, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &423550331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +3678,7 @@ GameObject:
   - component: {fileID: 1008828462}
   - component: {fileID: 1008828461}
   - component: {fileID: 1008828460}
+  - component: {fileID: 1008828463}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -3636,9 +3714,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435  \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435
+  - questionType: 0
+    Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435  \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435
       \u0434\u043B\u044F \xAB\u041A\u0440\u044E\u0447\u043A\u0438  \u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430
       \u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435\xBB"
+    Text: 
+    ImgOfQuestion: {fileID: 0}
     Answers:
     - "\u0414\u043B\u044F \u0431\u043E\u043A\u043E\u0432\u043E\u0433\u043E \u043F\u0435\u0440\u0435\u0436\u0430\u0442\u0438\u044F"
     - "\u0420\u0430\u0437\u0434\u0432\u0438\u0433\u0430\u043D\u0438\u044F \u0442\u043A\u0430\u043D\u0435\u0439
@@ -3646,10 +3727,14 @@ MonoBehaviour:
     - "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u0435 \u0440\u0430\u043D "
     - "\u0420\u0430\u0441\u0441\u0435\u0447\u0435\u043D\u0438\u0435 \u0442\u043A\u0430\u043D\u0435\u0439
       \u0432 \u043D\u0435\u0433\u043B\u0443\u0431\u043E\u043A\u0438\u0445 \u0440\u0430\u043D\u0430\u0445"
+    ImgAnswers: []
     CorrectAnswer: 03000000
-  - Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0435
+  - questionType: 0
+    Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0435
       \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430
       \xAB\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433\xBB"
+    Text: 
+    ImgOfQuestion: {fileID: 0}
     Answers:
     - "\u0412\u0432\u0435\u0434\u0435\u043D\u0438\u0435 \u0442\u0430\u043C\u043F\u043E\u043D\u0430
       \u0432 \u0433\u043B\u0443\u0431\u043E\u043A\u0443\u044E \u0440\u0430\u043D\u0443"
@@ -3660,22 +3745,30 @@ MonoBehaviour:
     - "\u041F\u0440\u043E\u0432\u043E\u0434\u043A\u0430 \u0434\u0440\u0435\u043D\u0430\u0436\u0430
       \u0447\u0435\u0440\u0435\u0437 \u0434\u043B\u0438\u043D\u043D\u044B\u0439 \u0443\u0437\u043A\u0438\u0439
       \u043A\u0430\u043D\u0430\u043B"
+    ImgAnswers: []
     CorrectAnswer: 0100000004000000
-  - Question: "\u041A\u0430\u043A\u043E\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442
+  - questionType: 0
+    Question: "\u041A\u0430\u043A\u043E\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442
       \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442\u0441\u044F \u0434\u043B\u044F
       \u043F\u0440\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u044F \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u043E\u0439
       \u0438\u0433\u043B\u044B \u0447\u0435\u0440\u0435\u0437 \u0442\u043A\u0430\u043D\u0438
       \u043F\u0440\u0438 \u043D\u0430\u043B\u043E\u0436\u0435\u043D\u0438\u0438 \u0448\u0432\u043E\u0432"
+    Text: 
+    ImgOfQuestion: {fileID: 0}
     Answers:
     - "\u0428\u043F\u0430\u0442\u0435\u043B\u044C \u0420\u0435\u0432\u0435\u0440\u0434\u0435\u043D\u0430"
     - "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
     - "\u0420\u0435\u0435\u0447\u043D\u044B\u0439 \u0440\u0430\u043D\u043E\u0440\u0430\u0441\u0448\u0438\u0440\u0438\u0442\u0435\u043B\u044C
       \u0413\u043E\u0441\u0441\u0435"
     - "\u0417\u043E\u043D\u0434 \u041A\u043E\u0445\u0435\u0440\u0430"
+    ImgAnswers: []
     CorrectAnswer: 02000000
-  - Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F
+  - questionType: 0
+    Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F
       \u0434\u043B\u044F \"\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0441 \u043F\u0440\u044F\u043C\u044B\u043C\u0438
       \u043B\u0435\u0437\u0432\u0438\u044F\u043C\u0438 (\u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435)\""
+    Text: 
+    ImgOfQuestion: {fileID: 0}
     Answers:
     - "\u041F\u0440\u0435\u043F\u0430\u0440\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 "
     - "\u043E\u0442\u0434\u0435\u043B\u0435\u043D\u0438\u044F \u043A\u043E\u0436\u043D\u043E-\u043F\u043E\u0434\u043A\u043E\u0436\u043D\u043E\u0433\u043E
@@ -3684,10 +3777,14 @@ MonoBehaviour:
       \u043F\u043E\u043B\u044B\u0445 \u043E\u0440\u0433\u0430\u043D\u043E\u0432"
     - "\u043A\u043E\u0440\u0440\u0435\u043A\u0442\u0438\u0440\u043E\u0432\u043A\u0438
       \u043A\u0440\u0430\u0451\u0432 \u0440\u0430\u043D\u044B"
+    ImgAnswers: []
     CorrectAnswer: 0100000002000000
-  - Question: "\u0413\u0434\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
+  - questionType: 0
+    Question: "\u0413\u0434\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
       \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 \xAB\u0410\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u043F\u0438\u043D\u0446\u0435\u0442"
+    Text: 
+    ImgOfQuestion: {fileID: 0}
     Answers:
     - "\u0423\u0434\u043E\u0431\u043D\u043E \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044C
       \u0442\u043A\u0430\u043D\u0438, \u043F\u043E\u0434\u0430\u0432\u0430\u0442\u044C
@@ -3700,8 +3797,10 @@ MonoBehaviour:
     - "\u0423\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044E\u0442 \u043F\u043B\u043E\u0442\u043D\u044B\u0435
       \u0442\u043A\u0430\u043D\u0438 \u2014 \u0444\u0430\u0441\u0446\u0438\u0438,
       \u0430\u043F\u043E\u043D\u0435\u0432\u0440\u043E\u0437, \u043A\u043E\u0436\u0443"
+    ImgAnswers: []
     CorrectAnswer: 03000000
   answerScript: {fileID: 1008828460}
+  Menu: {fileID: 1008828463}
   next: {fileID: 2040508639}
   options:
   - {fileID: 1067198701}
@@ -3709,15 +3808,22 @@ MonoBehaviour:
   - {fileID: 1422826563}
   - {fileID: 24500328}
   answers:
+  - {fileID: 1611528477}
+  - {fileID: 147982812}
+  - {fileID: 946913005}
+  - {fileID: 180995680}
+  Toggle:
+  - {fileID: 31497246}
+  - {fileID: 1881136118}
+  - {fileID: 1438766184}
+  - {fileID: 976144089}
+  TextOfQuestion: {fileID: 1692722861}
+  QuestionImg: {fileID: 420390635}
+  answersImg:
   - {fileID: 1294695151}
   - {fileID: 1572320144}
   - {fileID: 1290546407}
   - {fileID: 44753757}
-  Toggle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   currentQuestion: 0
   Questions: {fileID: 1767862732}
   Results: {fileID: 1313334121}
@@ -3727,7 +3833,7 @@ MonoBehaviour:
   totalQuestions: 0
   rightQuestions: 0
   NumQuestion: 0
-  isRightOption: 00000000
+  count: 0
 --- !u!4 &1008828462
 Transform:
   m_ObjectHideFlags: 0
@@ -3743,6 +3849,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1008828463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008828459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e68a70ce45c34dbcd7f6aa3ba2fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompetitiveQue: 0
+  ControlAndStudy: 0
 --- !u!1 &1056570840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4726,6 +4846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e68a70ce45c34dbcd7f6aa3ba2fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CompetitiveQue: 0
+  ControlAndStudy: 0
 --- !u!1 &1343454514
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,6 +6434,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645261200}
   m_Mesh: {fileID: 4300004, guid: c60e512d8bc03fa49ab5d0c860fc016c, type: 3}
+--- !u!1 &1692722861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692722864}
+  - component: {fileID: 1692722863}
+  - component: {fileID: 1692722862}
+  m_Layer: 5
+  m_Name: TextOfQ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1692722862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692722861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: SomeText
+--- !u!222 &1692722863
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692722861}
+  m_CullTransparentMesh: 1
+--- !u!224 &1692722864
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692722861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420390638}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1717341160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6533,7 +6735,7 @@ PrefabInstance:
     - target: {fileID: 3102177478485937542, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.60200024
+      value: 0.989
       objectReference: {fileID: 0}
     - target: {fileID: 3102177478485937542, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
         type: 3}
@@ -6694,6 +6896,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539091558684706222, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539091558684706222, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539091558684706222, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 5759259688849795668, guid: c5ab43e317e7e8c4ca0ac2719ffb64fa,
         type: 3}
@@ -7354,7 +7571,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 595711732}
-  - {fileID: 1797943729}
+  - {fileID: 420390638}
   - {fileID: 2082128799}
   - {fileID: 2040508640}
   - {fileID: 1067198702}
@@ -7444,82 +7661,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f16c3fbd8421d84ea2317f48882b8ac, type: 3}
---- !u!1 &1797943728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1797943729}
-  - component: {fileID: 1797943731}
-  - component: {fileID: 1797943730}
-  m_Layer: 5
-  m_Name: ImageQuestion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1797943729
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797943728}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1767862733}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1797943730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797943728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1797943731
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797943728}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1839412080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7767,7 +7908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955134896}
   m_LocalRotation: {x: -0.25538185, y: 0.8933557, z: -0.35946083, w: -0.08650847}
-  m_LocalPosition: {x: 0.62580997, y: 1.8509533, z: 4.4043016}
+  m_LocalPosition: {x: 1.116, y: 2.077, z: 4.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
