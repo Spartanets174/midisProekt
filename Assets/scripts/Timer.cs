@@ -10,10 +10,11 @@ public class Timer : MonoBehaviour
     [SerializeField] public Text timerText;
     public float _timeLeft = 0f;
     int count;
-    //Для соревновательного
+
     public IEnumerator StartTimer()
     {
         string sName = SceneManager.GetActiveScene().name;
+        //Для остальных
         if (sName == "Tutorial" || sName == "Control")
         {
             while (true)
@@ -23,6 +24,7 @@ public class Timer : MonoBehaviour
                 yield return null;
             }
         }
+        //Для соревновательного
         else
         {
             while (_timeLeft > 0)
@@ -49,6 +51,6 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(_timeLeft % 60);
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
-    //Для остальных
+    
 
 }

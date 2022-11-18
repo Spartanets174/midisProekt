@@ -2698,12 +2698,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1198291601}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &953858250 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 1198291601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &953858251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,77 +3206,77 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1913351446}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 935.3076
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 935.30774
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 935.3074
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.482
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000050522234
+      value: 1.589
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -556.9756
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2215193
+      value: 0.99988645
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0088584665
+      value: 0.008802043
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.973192
+      value: 0.008649743
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.061222695
+      value: 0.008649744
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -172.93
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -25.682007
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 180.571
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8220758734541946854, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
@@ -5394,7 +5388,6 @@ RectTransform:
   - {fileID: 584243932}
   - {fileID: 882228661}
   - {fileID: 1543468909}
-  - {fileID: 953858250}
   m_Father: {fileID: 1961168388}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5578,7 +5571,7 @@ Canvas:
   m_GameObject: {fileID: 1961168383}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1067700414}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
