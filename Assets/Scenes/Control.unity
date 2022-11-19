@@ -862,18 +862,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 935401142}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: Checking
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &291267843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,18 +1675,6 @@ MonoBehaviour:
       - m_Target: {fileID: 368080798}
         m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
         m_MethodName: SetTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 935401142}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: Checking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3257,18 +3233,6 @@ MonoBehaviour:
       - m_Target: {fileID: 603537423}
         m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
         m_MethodName: SetTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 935401142}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: Checking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5508,6 +5472,8 @@ MonoBehaviour:
   - {fileID: 187883207}
   TextOfQuestion: {fileID: 893399396}
   QuestionImg: {fileID: 588967436}
+  ComboText: {fileID: 0}
+  ScoresText: {fileID: 0}
   answersImg:
   - {fileID: 1290621497}
   - {fileID: 823383247}
@@ -5520,10 +5486,19 @@ MonoBehaviour:
   QuestionTxt: {fileID: 1376769710}
   ResultsTxt: {fileID: 1715453577}
   ResultsTime: {fileID: 460117833}
+  ComboResultsTxt: {fileID: 0}
+  ScoresResultsTxt: {fileID: 0}
   totalQuestions: 0
   rightQuestions: 0
   NumQuestion: 0
   count: 0
+  Scores: 0
+  Combo: 0
+  MaxCombo: 0
+  checkScoresForOne: 0
+  checkScoresForTwo: 0
+  BScoresForOne: 0
+  BScoresForTwo: 0
 --- !u!4 &935401143
 Transform:
   m_ObjectHideFlags: 0
@@ -5786,18 +5761,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1090494253}
         m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
         m_MethodName: SetTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 935401142}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: Checking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6509,6 +6472,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 935401142}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: TrueQAndScoresCombo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1457817422}
         m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
         m_MethodName: Answer

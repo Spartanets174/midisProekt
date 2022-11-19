@@ -69,6 +69,73 @@ public class QuizManager : MonoBehaviour
         }
         
     }
+    //Функция для проверки вопроса на правильность и подсчёта очков
+    public void TrueQAndScoresCombo()
+    {
+        count = 0;
+        for (int i = 0; i < options.Length; i++)
+        {
+            if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
+            {
+                count++;
+            }
+        }
+        //Проверяет есть ли ещё вопросы в тесте
+        if (QnA.Count > 0)
+        {
+            //Проверка сколько правильных вариантов ответа в тесте (один)
+            if (QnA[currentQuestion].CorrectAnswer.Length == 1)
+            {
+                if (options[QnA[currentQuestion].CorrectAnswer[0]-1].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&count==1)
+                {
+                    Combo++;
+                    Scores = Scores + 300 * Combo;
+                    next.GetComponent<AnswerScript>().isCorrect = true;
+                }
+                else
+                {
+                    if (count==0)
+                    {
+                        Combo = 0;
+                    }
+                    Combo = 0;
+                    Scores = Scores + 0 * Combo;
+                    next.GetComponent<AnswerScript>().isCorrect = false;
+                }
+            }
+            else
+            {
+                if (options[QnA[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[QnA[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
+                {
+                    Combo++;
+                    Scores = Scores + 300 * Combo;
+                    next.GetComponent<AnswerScript>().isCorrect = true;
+                }
+                else
+                {
+                    if ((options[QnA[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true || options[QnA[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && count == 1)
+                    {
+                        Combo++;
+                        Scores = Scores + 150 * Combo;
+                    }
+                    else
+                    {
+                        if (count == 0)
+                        {
+                            Combo = 0;
+                        }
+                        Combo = 0;
+                        Scores = Scores + 0 * Combo;
+                        next.GetComponent<AnswerScript>().isCorrect = false;
+                    }               
+                }
+            }
+            if (MaxCombo<=Combo)
+            {
+                MaxCombo = Combo;
+            }
+        }
+    }
     //Скрипт когда вопросов не осталось
     void GameOver()
     {
@@ -242,144 +309,5 @@ public class QuizManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-    //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
-    void onClick()
-    {
-        //Проверяет есть ли ещё вопросы в тесте
-        if (QnA.Count > 0)
-        {
-
-            //Проверка сколько правильных вариантов ответа в тесте (один)
-            if (QnA[currentQuestion].CorrectAnswer.Length == 1)
-            {
-                //Цикл перебора всех кнопок с вариантами ответов
-                for (int i = 0; i < options.Length; i++)
-                {
-                    //Проверка включен ли checkbox
-                    if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true) 
-                    { 
-                        count++;
-                        //Проверка включен ли checkbox и является ли он правильным ответов
-                        if (((options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && (i + 1 == QnA[currentQuestion].CorrectAnswer[0])) && count == 1)
-                        {
-                            //Присвоение значения кнопки для провреки при подсчёте очков в будуещем
-                            checkScoresForOne = i;
-                            //Нажата ли нужная кнопка для прибавления очков
-                            BScoresForOne = true; 
-                            //Передача true для isCorrect в скрипте AnswerScript
-                            next.GetComponent<AnswerScript>().isCorrect = true;
-                        }
-                        else
-                        {
-                            next.GetComponent<AnswerScript>().isCorrect = false;
-                            BScoresForOne = false;
-                        }
-                    }
-                    else
-                    {
-                        count = 0;
-                    }
-                    
-                    //Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0]);                   
-                }
-            }
-            //Проверка сколько правильных вариантов ответа в тесте (два)
-            else
-            {
-                //Цикл перебора всех кнопок с вариантами ответов
-                for (int i = 0; i < options.Length; i++)
-                {
-                    count = 0;
-                    if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
-                    {
-                        next.GetComponent<AnswerScript>().isCorrect = false;
-                        BScoresForOne = false;
-                        BScoresForTwo = false;
-                        if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true && (i + 1 == QnA[currentQuestion].CorrectAnswer[0] || i + 1 == QnA[currentQuestion].CorrectAnswer[1]))
-                        {    
-                            checkScoresForOne = i;                          
-                            BScoresForOne = true;
-                            count++;
-                            //Цикл перебора всех кнопок с вариантами ответов для проверки второй кнопки на правильность
-                            for (int j = i + 1; j < options.Length; j++)
-                            {
-                                //Debug.Log("Правильный ли первый: " + options[i].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер первого: " + i + " правильный ответ первого: " + QnA[currentQuestion].CorrectAnswer[0] + " Правильный ли второй " + options[j].transform.GetChild(1).GetComponent<Toggle>().isOn + " номер второго: " + j + " правильный ответ второго: " + QnA[currentQuestion].CorrectAnswer[1]);
-                                if (options[j].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
-                                {
-                                    count++;
-                                    if (((options[j].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && (j + 1 == QnA[currentQuestion].CorrectAnswer[1])) && count == 2)
-                                    {
-                                        //Присвоение значения кнопки для провреки при подсчёте очков в будуещем
-                                        checkScoresForTwo = j;
-                                        BScoresForTwo = true;
-                                        next.GetComponent<AnswerScript>().isCorrect = true;
-                                    }
-                                    else
-                                    {
-                                        next.GetComponent<AnswerScript>().isCorrect = false;
-                                        BScoresForTwo = false;
-                                    }
-                                }
-                            }
-                        }                       
-                    }
-                }
-
-            }
-        }
-    }
-    //Скрипт для вызова onClick
-    public void Checking()
-    {
-        onClick();
-    }
-    //Функция для подсчёта очков
-    public void ScoresAndCombo()
-    {
-        //Формула и правила подсчёта для вопроса с 2 правильными ответами
-        if (QnA[currentQuestion].CorrectAnswer.Length == 2)
-        {
-            //Проверка какие кнопки нажаты и являются ли эти кнопки правильным
-            if (options[checkScoresForOne].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[checkScoresForTwo].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&BScoresForOne&&BScoresForTwo)
-            {            
-                Combo++;
-                //Формула расчёта очков
-                Scores = Scores + 300 * Combo;
-            }
-            else
-            {
-                if (options[checkScoresForOne].transform.GetChild(1).GetComponent<Toggle>().isOn == true && BScoresForOne)
-                {
-                    Combo++;
-                    Scores = Scores + 150 * Combo;
-                }
-                else
-                {
-                    Combo = 0;
-                    Scores = Scores + 0 * Combo;
-                }
-            }
-        }
-        //Формула и правила подсчёта для вопроса с 1 правильным
-        else
-        { 
-            if (options[checkScoresForOne].transform.GetChild(1).GetComponent<Toggle>().isOn == true && BScoresForOne)
-            {
-                Combo++;
-                Scores = Scores + 300 * Combo;
-            }
-            else
-            {
-                Combo = 0;
-                Scores = Scores + 0 * Combo;
-            }
-        }
-        BScoresForTwo = false;
-        BScoresForOne = false;
-        if (MaxCombo <= Combo)
-        {
-            MaxCombo = Combo;
-        }
-        //один:{options[checkScoresForOne].transform.GetChild(1).GetComponent<Toggle>().isOn}, два:{options[checkScoresForTwo].transform.GetChild(1).GetComponent<Toggle>().isOn}
-    }
+    //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript   
 }

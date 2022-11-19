@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class AnswerScript : MonoBehaviour
 {
     public QuizManager quizManager;
-    public bool isCorrect=true;
+    public bool isCorrect = true;
     public int count = 0;
     public void Answer()
-    {      
+    {
         if (isCorrect)
         {
             Debug.Log("True");
@@ -31,12 +31,11 @@ public class AnswerScript : MonoBehaviour
             {
                 quizManager.options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = !quizManager.options[i].transform.GetChild(1).GetComponent<Toggle>().isOn;
             }
-        }; 
-        
+        };
+
     }
     public void SetTrue()
     {
         OnClick();
     }
 }
-    
