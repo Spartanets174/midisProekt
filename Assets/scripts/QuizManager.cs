@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
+    //public Dictionary<QuestionType, QuestionS> dict = new Dictionary<QuestionType, QuestionS>();
+    public MyDictioanary dict;
     //Ссылки на др скрипты
-    public List<QuestionsAnsAnswers> QnA;
+    //public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
     public Timer Timer;
     public Menu Menu;
@@ -22,6 +24,7 @@ public class QuizManager : MonoBehaviour
     public Text ScoresText;
     public GameObject[] answersImg;
     public int currentQuestion;
+    public QuestionType QuestionTypeCurrent;
 
     public GameObject Questions;
     public GameObject Results;
@@ -35,24 +38,21 @@ public class QuizManager : MonoBehaviour
     //Переменные для различных целей
     public int totalQuestions = 0;
     public int rightQuestions;
-    public int NumQuestion=0;
+    public int NumQuestion = 0;
     public int count = 0;
     public int Scores = 0;
     public int Combo = 0;
     public int MaxCombo = 0;
-    public int checkScoresForOne = 0;
-    public int checkScoresForTwo = 0;
-    public bool BScoresForOne = false;
-    public bool BScoresForTwo = false;
+
 
     private void Start()
     {
         //Установка максимального кол-ва вопросов в зависимости от режима
         string sName = SceneManager.GetActiveScene().name;
-        if(sName == "Tutorial" || sName == "Control")
+        if (sName == "Tutorial" || sName == "Control")
         {
             totalQuestions = 10;
-        }        
+        }
         //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
         generateQuestion();
@@ -67,7 +67,7 @@ public class QuizManager : MonoBehaviour
                 GameOver();
             }
         }
-        
+
     }
     //Функция для проверки вопроса на правильность и подсчёта очков
     public void TrueQAndScoresCombo()
@@ -81,12 +81,12 @@ public class QuizManager : MonoBehaviour
             }
         }
         //Проверяет есть ли ещё вопросы в тесте
-        if (QnA.Count > 0)
+        if (IsAnyQ())
         {
             //Проверка сколько правильных вариантов ответа в тесте (один)
-            if (QnA[currentQuestion].CorrectAnswer.Length == 1)
+            if (dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer.Length == 1)
             {
-                if (options[QnA[currentQuestion].CorrectAnswer[0]-1].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&count==1)
+                if (options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0]-1].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&count==1)
                 {
                     Combo++;
                     Scores = Scores + 300 * Combo;
@@ -105,7 +105,7 @@ public class QuizManager : MonoBehaviour
             }
             else
             {
-                if (options[QnA[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[QnA[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
+                if (options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
                 {
                     Combo++;
                     Scores = Scores + 300 * Combo;
@@ -113,7 +113,7 @@ public class QuizManager : MonoBehaviour
                 }
                 else
                 {
-                    if ((options[QnA[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true || options[QnA[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && count == 1)
+                    if ((options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true || options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && count == 1)
                     {
                         Combo++;
                         Scores = Scores + 150 * Combo;
@@ -137,9 +137,11 @@ public class QuizManager : MonoBehaviour
         }
     }
     //Скрипт когда вопросов не осталось
+
+    //Скрипт когда вопросов не осталось
     void GameOver()
     {
-        Questions.SetActive(false); 
+        Questions.SetActive(false);
         Results.SetActive(true);
         string sName = SceneManager.GetActiveScene().name;
         if (sName == "Tutorial" || sName == "Control")
@@ -149,7 +151,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            ResultsTxt.text = $"{rightQuestions} / {NumQuestion-1}";
+            ResultsTxt.text = $"{rightQuestions} / {NumQuestion - 1}";
             ComboResultsTxt.text = $"Максимальное комбо: {MaxCombo}";
             ScoresResultsTxt.text = $"Набрано очков: {Scores}";
         }
@@ -162,7 +164,10 @@ public class QuizManager : MonoBehaviour
         //Удаляет текущий вопрос, чтобы он не повторялся в будущем
         if (sName == "Tutorial" || sName == "Control")
         {
-            QnA.RemoveAt(currentQuestion);
+            dict[QuestionTypeCurrent].list.RemoveAt(currentQuestion);
+            //QnA.RemoveAt(currentQuestion);
+
+
         }
         generateQuestion();
     }
@@ -172,49 +177,54 @@ public class QuizManager : MonoBehaviour
         string sName = SceneManager.GetActiveScene().name;
         if (sName == "Tutorial" || sName == "Control")
         {
-            QnA.RemoveAt(currentQuestion);
+            dict[QuestionTypeCurrent].list.RemoveAt(currentQuestion);
+            //QnA.RemoveAt(currentQuestion);
+
         }
         generateQuestion();
     }
     //Скрипт для установки определённых текста/ картинок для каждого типа вопроса
     void SetAnswers()
-    {       
+    {
         //Если в вопросе варианты ответа и сам вопрос текстовые
-        if (QnA[currentQuestion].questionType.ToString() == "TextQuestionAndOption")
+        //QnA[currentQuestion].questionType.ToString() == "TextQuestionAndOption"
+
+
+        if (QuestionTypeCurrent == QuestionType.TextQuestionAndOption)
         {
             //Строки идущие до цикла устанавливают видимость определённых частей интерфейса в зависимости от его типа, а также меняют картинку, текст и цвет текста
             TextOfQuestion.SetActive(false);
-            QuestionImg.SetActive(false);  
+            QuestionImg.SetActive(false);
             //В цикле устанавливают видимость для элементов интерфейса, отвечающих за варианты ответа и задают им картинки/текст/цвет и т.д. в зависимости от типа вопроса
             for (int i = 0; i < options.Length; i++)
             {
                 answersImg[i].SetActive(true);
                 answers[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-                answersImg[i].GetComponent<Image>().sprite = QnA[currentQuestion].ImgOfQuestion;
+                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
-                answers[i].GetComponent<Text>().text = $"{i+1}. "+QnA[currentQuestion].Answers[i];
+                answers[i].GetComponent<Text>().text = $"{i + 1}. " + dict[QuestionTypeCurrent].list[currentQuestion].Answers[i];
             }
         }
         //Если в вопросе нужно дополнить текст недостающими словами
-        if (QnA[currentQuestion].questionType.ToString() == "WriteWords")
+        if (QuestionTypeCurrent == QuestionType.WriteWords)
         {
             TextOfQuestion.SetActive(true);
             QuestionImg.SetActive(true);
-            QuestionImg.GetComponent<Image>().sprite = QnA[currentQuestion].ImgOfQuestion;
+            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
             QuestionImg.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-            TextOfQuestion.GetComponent<Text>().text = QnA[currentQuestion].Text;
+            TextOfQuestion.GetComponent<Text>().text = dict[QuestionTypeCurrent].list[currentQuestion].Text;
             for (int i = 0; i < options.Length; i++)
             {
                 answersImg[i].SetActive(false);
                 answers[i].SetActive(false);
-                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + $"{QnA[currentQuestion].Answers[i]}";
+                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + $"{dict[QuestionTypeCurrent].list[currentQuestion].Answers[i]}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
         //Если в вопросе сам вопрос текстовый а варианты ответа картинки
-        if (QnA[currentQuestion].questionType.ToString() == "QuestionTextOptionImg")
+        if (QuestionTypeCurrent == QuestionType.QuestionTextOptionImg)
         {
             TextOfQuestion.SetActive(false);
             QuestionImg.SetActive(false);
@@ -223,27 +233,33 @@ public class QuizManager : MonoBehaviour
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(255, 255, 255, 1);
-                answersImg[i].GetComponent<Image>().sprite = QnA[currentQuestion].ImgAnswers[i];
+                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgAnswers[i];
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
-                next.GetComponent<AnswerScript>().isCorrect = false;                
+                next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
         //Если в вопросе сам вопрос картинка а варианты текстовые
-        if (QnA[currentQuestion].questionType.ToString() == "OptionTextQuestionImg")
+        if (QuestionTypeCurrent == QuestionType.OptionTextQuestionImg)
         {
-            TextOfQuestion.SetActive(false);          
+            TextOfQuestion.SetActive(false);
             QuestionImg.SetActive(true);
             QuestionImg.GetComponent<Image>().color = new Color(255, 255, 255, 1);
-            QuestionImg.GetComponent<Image>().sprite = QnA[currentQuestion].ImgOfQuestion;
+            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
             for (int i = 0; i < options.Length; i++)
             {
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(false);
-                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + QnA[currentQuestion].Answers[i];
+                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + dict[QuestionTypeCurrent].list[currentQuestion].Answers[i];
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
     }
+
+    private bool IsAnyQInType(QuestionType type)
+    {
+        return dict[type].list.Count > 0;
+    }
+
     //Скрипт для генерации нового вопроса
     void generateQuestion()
     {
@@ -254,9 +270,19 @@ public class QuizManager : MonoBehaviour
             if (totalQuestions > NumQuestion)
             {
                 //Рандомизация вопроса
-                currentQuestion = Random.Range(0, QnA.Count);
+
+
+                QuestionTypeCurrent = (QuestionType)Random.Range(0, dict.Count);
+
+                //!!! - - - ВНИМАНИЕ - - - !!!
+                if (!IsAnyQInType(QuestionTypeCurrent))
+                {
+                    generateQuestion();
+                }
+
+                currentQuestion = Random.Range(0, dict[QuestionTypeCurrent].list.Count);
                 //Для условия вопроса
-                QuestionTxt.text = QnA[currentQuestion].Question;
+                QuestionTxt.text = dict[QuestionTypeCurrent].list[currentQuestion].Question;
                 NumQuestion++;
                 count = 0;
                 //Для номера вопроса
@@ -276,12 +302,13 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            if (Timer._timeLeft >0)
+            if (Timer._timeLeft > 0)
             {
                 //Рандомизация вопроса
-                currentQuestion = Random.Range(0, QnA.Count);
+                QuestionTypeCurrent = (QuestionType)Random.Range(0, dict.Count);
+                currentQuestion = Random.Range(0, dict[QuestionTypeCurrent].list.Count);
                 //Для условия вопроса
-                QuestionTxt.text = QnA[currentQuestion].Question;                
+                QuestionTxt.text = dict[QuestionTypeCurrent].list[currentQuestion].Question;
                 NumQuestion++;
                 count = 0;
                 //Для номера вопроса
@@ -303,11 +330,27 @@ public class QuizManager : MonoBehaviour
             }
         }
         //Если пользователь ответил на все вопросы
-        
+
     }
     public void GoMenu()
     {
         SceneManager.LoadScene("Menu");
     }
-    //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript   
+    //Проверяет правильные ли кнопки выбрал пользователь при каждом клике на кнопку и возваращет true или false для функции Answer в AnswerScript
+
+
+    //проверка листов на что-то
+    private bool IsAnyQ()
+    {
+
+        int numQ = 0;
+
+        foreach (var pair in dict)
+        {
+            numQ += pair.Value.list.Count;
+        }
+
+        return numQ > 0;
+    }
+
 }
