@@ -353,4 +353,30 @@ public class QuizManager : MonoBehaviour
         return numQ > 0;
     }
 
+
+    QuestionsAnsAnswers[] questionsArray = new QuestionsAnsAnswers[10];
+    
+    public void StartTextQuest()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            questionsArray[i] = dict[QuestionType.TextQuestionAndOption].list[Random.Range(0, dict[QuestionType.TextQuestionAndOption].list.Count)];
+        }
+    }
+
+    public void StartImgQuest()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            questionsArray[i] = dict[QuestionType.QuestionTextOptionImg].list[Random.Range(0, dict[QuestionType.TextQuestionAndOption].list.Count)];
+        }
+    }
+
+    public void StartAllQuest()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            questionsArray[i] = dict[(QuestionType)Random.Range(0, 4)].list[Random.Range(0, dict[QuestionType.TextQuestionAndOption].list.Count)];
+        }
+    }
 }

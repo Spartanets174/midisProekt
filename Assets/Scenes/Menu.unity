@@ -221,6 +221,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartTextQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &18298949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,6 +1392,7 @@ RectTransform:
   - {fileID: 792396299}
   - {fileID: 2017351613}
   - {fileID: 1974136482}
+  - {fileID: 1048219103}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3460,6 +3473,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartImgQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771082292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3679,6 +3704,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1716986057}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Tutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartAllQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4553,6 +4590,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988236032}
   m_CullTransparentMesh: 1
+--- !u!1 &1048219102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048219103}
+  - component: {fileID: 1048219104}
+  m_Layer: 5
+  m_Name: QManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048219103
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048219102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350776370}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048219104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048219102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250530c8fee02af468c4ff262a992575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dict:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 0
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 0
+    _keyValues: 
+    _keys: 
+    _values: []
+  answerScript: {fileID: 0}
+  Timer: {fileID: 0}
+  Menu: {fileID: 0}
+  next: {fileID: 0}
+  options: []
+  answers: []
+  Toggle: []
+  TextOfQuestion: {fileID: 0}
+  QuestionImg: {fileID: 0}
+  ComboText: {fileID: 0}
+  ScoresText: {fileID: 0}
+  answersImg: []
+  currentQuestion: 0
+  QuestionTypeCurrent: 0
+  Questions: {fileID: 0}
+  Results: {fileID: 0}
+  QuetionNum: {fileID: 0}
+  QuestionTxt: {fileID: 0}
+  ResultsTxt: {fileID: 0}
+  ResultsTime: {fileID: 0}
+  ComboResultsTxt: {fileID: 0}
+  ScoresResultsTxt: {fileID: 0}
+  totalQuestions: 0
+  rightQuestions: 0
+  NumQuestion: 0
+  count: 0
+  Scores: 0
+  Combo: 0
+  MaxCombo: 0
 --- !u!1 &1057376166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5514,6 +5655,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartTextQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1236427510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6256,6 +6409,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1716986057}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Control
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartAllQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7475,6 +7640,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartImgQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1702942050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,6 +8556,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1716986057}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Competitive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1048219104}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartAllQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
