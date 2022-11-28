@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class QuizManager : MonoBehaviour
+public class QManagerCompetitive : MonoBehaviour
 {
     //public Dictionary<QuestionType, QuestionS> dict = new Dictionary<QuestionType, QuestionS>();
-    public MyDictioanary dict;
-    QuestionsAnsAnswers[] questionsArray = new QuestionsAnsAnswers[10];
+    public MyDictioanary dict; 
     //Ссылки на др скрипты
     //public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
@@ -20,6 +19,8 @@ public class QuizManager : MonoBehaviour
     public GameObject[] Toggle;
     public GameObject TextOfQuestion;
     public GameObject QuestionImg;
+    public Text ComboText;
+    public Text ScoresText;
     public GameObject[] answersImg;
     public int currentQuestion;
     public QuestionType QuestionTypeCurrent;
@@ -30,7 +31,8 @@ public class QuizManager : MonoBehaviour
 
     public Text QuestionTxt;
     public Text ResultsTxt;
-    public Text ResultsTime;
+    public Text ComboResultsTxt;
+    public Text ScoresResultsTxt;
     //Переменные для различных целей
     public int NumberTypeQ;
     public int NumberQuestion;
@@ -38,45 +40,22 @@ public class QuizManager : MonoBehaviour
     public int rightQuestions;
     public int NumQuestion = 0;
     public int count = 0;
+    public int Scores = 0;
+    public int Combo = 0;
+    public int MaxCombo = 0;
 
 
     private void Start()
     {
-        totalQuestions = 10;
-        Debug.Log($"{SetQMass.setImage}, {SetQMass.setText}, {dict.Count}");
-        //Отключение окна интерфейса с результатами при старте
         Results.SetActive(false);
-        //Массив из текстовх вопросов 
-        for (int i = 0; i < 10; i++)
-        {
-            generateQuestionAndType();           
-            questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[NumberQuestion];
-            dict[questionsArray[i].questionType].list.RemoveAt(NumberQuestion);
-        }
         generateQuestion();
     }
-    public void generateQuestionAndType()
+    private void Update()
     {
-        if (SetQMass.setText == true && SetQMass.setImage == false)
-        {
-            NumberTypeQ = Random.Range(0, 2);
-            NumberQuestion = Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count);
-        }
-        if (SetQMass.setText == false && SetQMass.setImage == true)
-        {
-            NumberTypeQ = Random.Range(2, 4);
-            NumberQuestion = Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count);
-        }
-        if (SetQMass.setText == true && SetQMass.setImage == true)
-        {
-            NumberTypeQ = Random.Range(0, 4);
-            NumberQuestion = Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count);
-        }
-        Debug.Log($"{NumberQuestion}");
-        if (dict[(QuestionType)NumberTypeQ].list.Count == 0)
-        {
-            generateQuestionAndType();
-        }
+       if (Timer._timeLeft <= 0)
+         {
+            GameOver();
+         }
     }
     //Функция для проверки вопроса на правильность и подсчёта очков
     public void TrueQAndScoresCombo()
@@ -93,39 +72,67 @@ public class QuizManager : MonoBehaviour
         if (IsAnyQ())
         {
             //Проверка сколько правильных вариантов ответа в тесте (один)
-            if (questionsArray[NumQuestion - 1].CorrectAnswer.Length == 1)
+            if (dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer.Length == 1)
             {
-                if (options[questionsArray[NumQuestion - 1].CorrectAnswer[0]-1].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&count==1)
-                {                    
+                if (options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 1)
+                {
+                    Combo++;
+                    Scores = Scores + 300 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = true;
                 }
                 else
                 {
+                    if (count == 0)
+                    {
+                        Combo = 0;
+                    }
+                    Combo = 0;
+                    Scores = Scores + 0 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = false;
                 }
             }
             else
             {
-                if (options[questionsArray[NumQuestion - 1].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[questionsArray[NumQuestion - 1].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
+                if (options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
                 {
+                    Combo++;
+                    Scores = Scores + 300 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = true;
                 }
                 else
                 {
-                    next.GetComponent<AnswerScript>().isCorrect = false;                                
+                    if ((options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true || options[dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true) && count == 1)
+                    {
+                        Combo++;
+                        Scores = Scores + 150 * Combo;
+                    }
+                    else
+                    {
+                        if (count == 0)
+                        {
+                            Combo = 0;
+                        }
+                        Combo = 0;
+                        Scores = Scores + 0 * Combo;
+                        next.GetComponent<AnswerScript>().isCorrect = false;
+                    }
                 }
+            }
+            if (MaxCombo <= Combo)
+            {
+                MaxCombo = Combo;
             }
         }
     }
-    //Скрипт когда вопросов не осталось
 
     //Скрипт когда вопросов не осталось
     void GameOver()
     {
         Questions.SetActive(false);
         Results.SetActive(true);
-        ResultsTxt.text = rightQuestions + "/" + totalQuestions;
-        ResultsTime.text = $"Время прохождения: {Timer.timerText.text}";
+        ResultsTxt.text = $"{rightQuestions} / {NumQuestion - 1}";
+        ComboResultsTxt.text = $"Максимальное комбо: {MaxCombo}";
+        ScoresResultsTxt.text = $"Набрано очков: {Scores}";
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()
@@ -141,7 +148,7 @@ public class QuizManager : MonoBehaviour
     //Скрипт для установки определённых текста/ картинок для каждого типа вопроса
     void SetAnswers()
     {
-        //Если в вопросе варианты ответа и сам вопрос текстовые   
+        //Если в вопросе варианты ответа и сам вопрос текстовые
         if (QuestionTypeCurrent == QuestionType.TextQuestionAndOption)
         {
             //Строки идущие до цикла устанавливают видимость определённых частей интерфейса в зависимости от его типа, а также меняют картинку, текст и цвет текста
@@ -153,10 +160,10 @@ public class QuizManager : MonoBehaviour
                 answersImg[i].SetActive(true);
                 answers[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-                answersImg[i].GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
+                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
-                answers[i].GetComponent<Text>().text = $"{i + 1}. " + questionsArray[NumQuestion - 1].Answers[i];
+                answers[i].GetComponent<Text>().text = $"{i + 1}. " + dict[QuestionTypeCurrent].list[currentQuestion].Answers[i];
             }
         }
         //Если в вопросе нужно дополнить текст недостающими словами
@@ -164,14 +171,14 @@ public class QuizManager : MonoBehaviour
         {
             TextOfQuestion.SetActive(true);
             QuestionImg.SetActive(true);
-            QuestionImg.GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
+            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
             QuestionImg.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-            TextOfQuestion.GetComponent<Text>().text = questionsArray[NumQuestion - 1].Text;
+            TextOfQuestion.GetComponent<Text>().text = dict[QuestionTypeCurrent].list[currentQuestion].Text;
             for (int i = 0; i < options.Length; i++)
             {
                 answersImg[i].SetActive(false);
                 answers[i].SetActive(false);
-                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + $"{questionsArray[NumQuestion - 1].Answers[i]}";
+                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + $"{dict[QuestionTypeCurrent].list[currentQuestion].Answers[i]}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
@@ -185,7 +192,7 @@ public class QuizManager : MonoBehaviour
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(255, 255, 255, 1);
-                answersImg[i].GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgAnswers[i];
+                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgAnswers[i];
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
@@ -196,87 +203,63 @@ public class QuizManager : MonoBehaviour
             TextOfQuestion.SetActive(false);
             QuestionImg.SetActive(true);
             QuestionImg.GetComponent<Image>().color = new Color(255, 255, 255, 1);
-            QuestionImg.GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
+            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
             for (int i = 0; i < options.Length; i++)
             {
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(false);
-                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + questionsArray[NumQuestion - 1].Answers[i];
+                options[i].transform.GetChild(0).GetComponent<Text>().text = $"{i + 1}. " + dict[QuestionTypeCurrent].list[currentQuestion].Answers[i];
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
         }
     }
-
-    //Скрипт для генерации нового вопроса
     void generateQuestion()
     {
-        if (totalQuestions > NumQuestion)
+        string sName = SceneManager.GetActiveScene().name;
+        if (sName == "Competitive")
         {
-            NumQuestion++;
-            QuestionTypeCurrent = questionsArray[NumQuestion - 1].questionType;
-            currentQuestion = NumQuestion - 1;
-            Debug.Log($"{NumQuestion - 1}, {QuestionTypeCurrent}, {currentQuestion}");
-            //Для условия вопроса
-            QuestionTxt.text = questionsArray[NumQuestion - 1].Question;
-            count = 0;
-            //Для номера вопроса
-            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
-            //Установление всех checkbox в отключенное состояние
-            for (int i = 0; i < options.Length; i++)
+            if (Timer._timeLeft > 0)
             {
-                options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+                //Рандомизация вопроса
+                QuestionTypeCurrent = (QuestionType)Random.Range(0, dict.Count);
+                currentQuestion = Random.Range(0, dict[QuestionTypeCurrent].list.Count);
+                //Для условия вопроса
+                QuestionTxt.text = dict[QuestionTypeCurrent].list[currentQuestion].Question;
+                NumQuestion++;
+                count = 0;
+                //Для номера вопроса
+                QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
+                //Обновление значений для очков и комбо
+                ScoresText.text = Scores.ToString();
+                ComboText.text = Combo.ToString() + "x";
+                //Установление всех checkbox в отключенное состояние
+                for (int i = 0; i < options.Length; i++)
+                {
+                    options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;
+                }
+                SetAnswers();
             }
-            SetAnswers();
-        }
-        //Если пользователь ответил на все вопросы
-        else
-        {
+            //Если пользователь ответил на все вопросы или кончилось время
+            else
+            {
                 Debug.Log("Vse");
                 GameOver();
-        }        
+            }
+        }            
     }
     public void GoMenu()
     {
         SceneManager.LoadScene("Menu");
     }
-
-
     //проверка листов на что-то
     private bool IsAnyQ()
     {
-        int numQ = 0;       
+        int numQ = 0;
         foreach (var pair in dict)
         {
             numQ += pair.Value.list.Count;
         }
-
         return numQ > 0;
     }
-    ////Массив из текстовх вопросов ()
-    //public void StartTextQuest()
-    //{      
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(0, 2);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
-    ////Массив из вопросов с картинками ()
-    //public void StartImgQuest()
-    //{
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(3, 4);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
-    ////Массив из всех вопросов
-    //public void StartAllQuest()
-    //{       
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(0, 4);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
 }
+
