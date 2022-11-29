@@ -8,13 +8,14 @@ public class QuizManager : MonoBehaviour
 {
     //public Dictionary<QuestionType, QuestionS> dict = new Dictionary<QuestionType, QuestionS>();
     public MyDictioanary dict;
-    QuestionsAnsAnswers[] questionsArray = new QuestionsAnsAnswers[10];
+    public QuestionsAnsAnswers[] questionsArray = new QuestionsAnsAnswers[10];
     //Ссылки на др скрипты
     //public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
     public Timer Timer;
     //Ссылки на объекты в юнити
     public GameObject next;
+    public GameObject back;
     public GameObject[] options;
     public GameObject[] answers;
     public GameObject[] Toggle;
@@ -72,7 +73,6 @@ public class QuizManager : MonoBehaviour
             NumberTypeQ = Random.Range(0, 4);
             NumberQuestion = Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count);
         }
-        Debug.Log($"{NumberQuestion}");
         if (dict[(QuestionType)NumberTypeQ].list.Count == 0)
         {
             generateQuestionAndType();
@@ -81,6 +81,9 @@ public class QuizManager : MonoBehaviour
     //Функция для проверки вопроса на правильность и подсчёта очков
     public void TrueQAndScoresCombo()
     {
+        //Для правильного расчёта правильных ответов (используется  в tutorial)
+        next.GetComponent<AnswerScript>().isCorrect = false;
+        //Считает кол-во нажатых кнопок
         count = 0;
         for (int i = 0; i < options.Length; i++)
         {
@@ -117,10 +120,30 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
-    //Скрипт когда вопросов не осталось
-
-    //Скрипт когда вопросов не осталось
-    void GameOver()
+    //Скрипт для кнопки назад
+    public void Back()
+    {
+        if (NumQuestion > 1)
+        {
+            NumQuestion--;
+            QuestionTypeCurrent = questionsArray[NumQuestion - 1].questionType;
+            currentQuestion = NumQuestion - 1;
+            //Для условия вопроса
+            QuestionTxt.text = questionsArray[NumQuestion - 1].Question;
+            count = 0;
+            //Для номера вопроса
+            QuetionNum.GetComponent<Text>().text = NumQuestion.ToString();
+            //Установление всех checkbox в отключенное состояние
+            for (int i = 0; i < options.Length; i++)
+            {
+                options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;                
+            }            
+            next.GetComponent<AnswerScript>().isCorrect = false;
+            SetAnswers();
+        }
+    }
+        //Скрипт когда вопросов не осталось
+        void GameOver()
     {
         Questions.SetActive(false);
         Results.SetActive(true);
@@ -215,7 +238,6 @@ public class QuizManager : MonoBehaviour
             NumQuestion++;
             QuestionTypeCurrent = questionsArray[NumQuestion - 1].questionType;
             currentQuestion = NumQuestion - 1;
-            Debug.Log($"{NumQuestion - 1}, {QuestionTypeCurrent}, {currentQuestion}");
             //Для условия вопроса
             QuestionTxt.text = questionsArray[NumQuestion - 1].Question;
             count = 0;
