@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 public static class  SetQMass 
 {
     public static string uName = "";
@@ -22,4 +24,11 @@ public static class  SetQMass
             setImage = true;
         }  
 
+}
+public class ResultQuestion
+{
+    public string textQuestion { get; set; }
+    public bool isRight { get; set; }
+    public string userAns { get; set; }
+    public string rightAns{ get; set; }
 }

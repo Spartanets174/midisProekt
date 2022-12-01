@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class QManagerCompetitive : MonoBehaviour
 {
-    //public Dictionary<QuestionType, QuestionS> dict = new Dictionary<QuestionType, QuestionS>();
+    //Ссылка на словарь с вопросами
     public MyDictioanary dict; 
     //Ссылки на др скрипты
-    //public List<QuestionsAnsAnswers> QnA;
     public AnswerScript answerScript;
     public Timer Timer;
     //Ссылки на объекты в юнити
@@ -21,51 +20,62 @@ public class QManagerCompetitive : MonoBehaviour
     public GameObject QuestionImg;
     public Text ComboText;
     public Text ScoresText;
+    public Text QuestionTxt;
     public GameObject[] answersImg;
-    public int currentQuestion;
+    public int currentQuestion;   
     public QuestionType QuestionTypeCurrent;
 
     public GameObject Questions;
     public GameObject Results;
     public GameObject QuetionNum;
-
-    public Text QuestionTxt;
+ 
     public Text ResultsTxt;
     public Text ComboResultsTxt;
     public Text ScoresResultsTxt;
+    public Text Grade;
+    public Transform Content;
+    public GameObject questionForResults;
+    public bool over=false;
     //Переменные для различных целей
-    public int NumberTypeQ;
-    public int NumberQuestion;
-    public int totalQuestions = 0;
-    public int rightQuestions;
-    public int NumQuestion = 0;
-    public int count = 0;
-    public int Scores = 0;
-    public int Combo = 0;
-    public int MaxCombo = 0;
-
+    int rightQuestions;
+    int NumQuestion = 0;
+    int count = 0;
+    int Scores = 0;
+    int Combo = 0;
+    int MaxCombo = 0;
+    //Для результатов
+    List<ResultQuestion> resultsQuestions = new List<ResultQuestion>();
+    questionHolder questionHolder;
+    bool isRightQuestion;
+    string userAnswer="";
+    
 
     private void Start()
     {
         Results.SetActive(false);
+        resultsQuestions.Clear();
         generateQuestion();
     }
     private void Update()
     {
-       if (Timer._timeLeft <= 0)
+       if (Timer._timeLeft <= 0 && over==false)
          {
-            GameOver();
+            Debug.Log(over);
+            over = true;
+            GameOver();          
          }
     }
     //Функция для проверки вопроса на правильность и подсчёта очков
     public void TrueQAndScoresCombo()
     {
+        userAnswer = "";
         count = 0;
         for (int i = 0; i < options.Length; i++)
         {
             if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
             {
                 count++;
+                userAnswer +=$"{i+1} ";
             }
         }
         //Проверяет есть ли ещё вопросы в тесте
@@ -79,6 +89,7 @@ public class QManagerCompetitive : MonoBehaviour
                     Combo++;
                     Scores = Scores + 300 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = true;
+                    isRightQuestion = true;
                 }
                 else
                 {
@@ -89,6 +100,7 @@ public class QManagerCompetitive : MonoBehaviour
                     Combo = 0;
                     Scores = Scores + 0 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = false;
+                    isRightQuestion = false;
                 }
             }
             else
@@ -98,6 +110,7 @@ public class QManagerCompetitive : MonoBehaviour
                     Combo++;
                     Scores = Scores + 300 * Combo;
                     next.GetComponent<AnswerScript>().isCorrect = true;
+                    isRightQuestion = true;
                 }
                 else
                 {
@@ -115,6 +128,7 @@ public class QManagerCompetitive : MonoBehaviour
                         Combo = 0;
                         Scores = Scores + 0 * Combo;
                         next.GetComponent<AnswerScript>().isCorrect = false;
+                        isRightQuestion = false;
                     }
                 }
             }
@@ -124,15 +138,63 @@ public class QManagerCompetitive : MonoBehaviour
             }
         }
     }
+    //Скрипт для итогов
+    public void forResults()
+    {
+        string right="";
+        for (int i = 0; i < dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer.Length; i++)
+        {
+            right += $"{dict[QuestionTypeCurrent].list[currentQuestion].CorrectAnswer[i].ToString()} ";
+        }       
+        resultsQuestions.Add(new ResultQuestion
+        {
+            textQuestion = dict[QuestionTypeCurrent].list[currentQuestion].Question,            
+            isRight = isRightQuestion,
+            userAns = userAnswer,
+            rightAns = right,
+        });
+        Debug.Log($"{resultsQuestions[resultsQuestions.Count-1].textQuestion}, {resultsQuestions[resultsQuestions.Count-1].isRight}, {resultsQuestions[resultsQuestions.Count-1].userAns}, {resultsQuestions[resultsQuestions.Count-1].rightAns}, {resultsQuestions.Count}");
+    }
 
     //Скрипт когда вопросов не осталось
-    void GameOver()
+    public void GameOver()
     {
         Questions.SetActive(false);
         Results.SetActive(true);
-        ResultsTxt.text = $"{rightQuestions} / {NumQuestion - 1}";
-        ComboResultsTxt.text = $"Максимальное комбо: {MaxCombo}";
+        ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion - 1}";
+        ComboResultsTxt.text = $"Комбо: {MaxCombo}";
         ScoresResultsTxt.text = $"Набрано очков: {Scores}";
+        
+        
+        for (int i = 0; i < resultsQuestions.Count; i++)
+        {          
+            
+            
+            questionForResults.GetComponent<questionHolder>().Question.text = resultsQuestions[i].textQuestion;
+            if (resultsQuestions[i].isRight)
+            {
+                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().right;
+                questionForResults.GetComponent<questionHolder>().isRight.interactable = false;
+            }
+            else
+            {
+                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().wrong;
+                questionForResults.GetComponent<questionHolder>().isRight.interactable = true;
+            }
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            if (resultsQuestions[i].userAns == "")
+            {
+                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: ничего";
+            }
+            else
+            {
+                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+            }
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
+        }               
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()

@@ -28,18 +28,27 @@ public class QuizManager : MonoBehaviour
     public GameObject Questions;
     public GameObject Results;
     public GameObject QuetionNum;
+    public GameObject questionForResults;
+    public Transform Content;
+    public Text ComboResultsTxt;
+    public Text ScoresResultsTxt;
+    public Text Grade;
 
     public Text QuestionTxt;
     public Text ResultsTxt;
     public Text ResultsTime;
+    questionHolder questionHolder;
     //Переменные для различных целей
-    public int NumberTypeQ;
-    public int NumberQuestion;
-    public int totalQuestions = 0;
-    public int rightQuestions;
-    public int NumQuestion = 0;
-    public int count = 0;
-
+     int NumberTypeQ;
+     int NumberQuestion;
+     int totalQuestions = 0;
+     int rightQuestions;
+     int NumQuestion = 0;
+     int count = 0;
+    //Для итогов
+    List<ResultQuestion> resultsQuestions = new List<ResultQuestion>();
+    bool isRightQuestion;
+    string userAnswer = "";
 
     private void Start()
     {
@@ -85,11 +94,13 @@ public class QuizManager : MonoBehaviour
         next.GetComponent<AnswerScript>().isCorrect = false;
         //Считает кол-во нажатых кнопок
         count = 0;
+        userAnswer = "";
         for (int i = 0; i < options.Length; i++)
         {
             if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
             {
                 count++;
+                userAnswer += $"{i + 1} ";
             }
         }
         //Проверяет есть ли ещё вопросы в тесте
@@ -101,10 +112,12 @@ public class QuizManager : MonoBehaviour
                 if (options[questionsArray[NumQuestion - 1].CorrectAnswer[0]-1].transform.GetChild(1).GetComponent<Toggle>().isOn == true&&count==1)
                 {                    
                     next.GetComponent<AnswerScript>().isCorrect = true;
+                    isRightQuestion = true;
                 }
                 else
                 {
                     next.GetComponent<AnswerScript>().isCorrect = false;
+                    isRightQuestion = false;
                 }
             }
             else
@@ -112,10 +125,12 @@ public class QuizManager : MonoBehaviour
                 if (options[questionsArray[NumQuestion - 1].CorrectAnswer[0] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && options[questionsArray[NumQuestion - 1].CorrectAnswer[1] - 1].transform.GetChild(1).GetComponent<Toggle>().isOn == true && count == 2)
                 {
                     next.GetComponent<AnswerScript>().isCorrect = true;
+                    isRightQuestion = true;
                 }
                 else
                 {
-                    next.GetComponent<AnswerScript>().isCorrect = false;                                
+                    next.GetComponent<AnswerScript>().isCorrect = false;
+                    isRightQuestion = false;
                 }
             }
         }
@@ -125,6 +140,8 @@ public class QuizManager : MonoBehaviour
     {
         if (NumQuestion > 1)
         {
+            Debug.Log($"{resultsQuestions.Count}, {NumQuestion}");
+            resultsQuestions.Remove(resultsQuestions[NumQuestion - 2]);
             NumQuestion--;
             QuestionTypeCurrent = questionsArray[NumQuestion - 1].questionType;
             currentQuestion = NumQuestion - 1;
@@ -142,18 +159,70 @@ public class QuizManager : MonoBehaviour
             SetAnswers();
         }
     }
-        //Скрипт когда вопросов не осталось
-        void GameOver()
+    public void forResults()
+    {
+        string right = "";
+        for (int i = 0; i < questionsArray[NumQuestion - 1].CorrectAnswer.Length; i++)
+        {
+            right += $"{questionsArray[NumQuestion - 1].CorrectAnswer[i].ToString()} ";
+        }
+        resultsQuestions.Add(new ResultQuestion
+        {
+            textQuestion = questionsArray[NumQuestion - 1].Question,
+            isRight = isRightQuestion,
+            userAns = userAnswer,
+            rightAns = right,
+        });
+    }
+    //Скрипт когда вопросов не осталось
+    public void GameOver()
     {
         Questions.SetActive(false);
         Results.SetActive(true);
-        ResultsTxt.text = rightQuestions + "/" + totalQuestions;
-        ResultsTime.text = $"Время прохождения: {Timer.timerText.text}";
+        for (int i = 0; i < resultsQuestions.Count; i++)
+        {
+            if (resultsQuestions[i].isRight)
+            {
+                rightQuestions++;
+            }
+        }
+        ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion}";
+
+        ResultsTime.text = $"Время на прохождение: {Timer.timerText.text}";
+        Grade.text = Mathf.Round(rightQuestions / 2).ToString();
+        ComboResultsTxt.text = $"{SetQMass.uName}";
+        ScoresResultsTxt.text = $"{SetQMass.uSecondName}";
+        for (int i = 0; i < resultsQuestions.Count; i++)
+        {
+            questionForResults.GetComponent<questionHolder>().Question.text = resultsQuestions[i].textQuestion;
+            if (resultsQuestions[i].isRight)
+            {
+                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().right;
+                questionForResults.GetComponent<questionHolder>().isRight.interactable = false;
+            }
+            else
+            {
+                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().wrong;
+                questionForResults.GetComponent<questionHolder>().isRight.interactable = true;
+            }
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            if (resultsQuestions[i].userAns == "")
+            {
+                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: ничего";
+            }
+            else
+            {
+                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+            }
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
+            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
+            Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
+        }
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()
     {
-        rightQuestions++;
         generateQuestion();
     }
     //Скрипт для неправильного ответа и генерации нового вопроса
@@ -274,31 +343,4 @@ public class QuizManager : MonoBehaviour
 
         return numQ > 0;
     }
-    ////Массив из текстовх вопросов ()
-    //public void StartTextQuest()
-    //{      
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(0, 2);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
-    ////Массив из вопросов с картинками ()
-    //public void StartImgQuest()
-    //{
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(3, 4);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
-    ////Массив из всех вопросов
-    //public void StartAllQuest()
-    //{       
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        int NumberTypeQ = Random.Range(0, 4);
-    //        questionsArray[i] = dict[(QuestionType)NumberTypeQ].list[Random.Range(0, dict[(QuestionType)NumberTypeQ].list.Count)];
-    //    }
-    //}
 }
