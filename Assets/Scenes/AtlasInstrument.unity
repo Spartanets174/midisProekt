@@ -194,8 +194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1800, y: 980}
+  m_AnchoredPosition: {x: 0, y: 1.0295}
+  m_SizeDelta: {x: 1920, y: 342.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125768266
 MonoBehaviour:
@@ -219,7 +219,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2008,7 +2008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: -400}
+  m_AnchoredPosition: {x: 728, y: -110}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641055056
@@ -2710,7 +2710,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224526d8d657457448ff114b96a6fe6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: -0.15
+  rotateSpeed: 1000
+  idleRotateSpeed: -0.15
+  transformObject: {fileID: 953858252}
+--- !u!4 &953858252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1198291601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &984100970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2862,7 +2870,8 @@ Transform:
   m_LocalPosition: {x: 1.4729999, y: 1.619, z: 4.287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 953858252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.587, y: 3.349, z: 0.184}
@@ -3206,12 +3215,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1067700416}
     m_Modifications:
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
@@ -3231,37 +3240,37 @@ PrefabInstance:
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.482
+      value: -0.01053632
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.589
+      value: -0.02073543
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.62
+      value: 0.33365977
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99988645
+      value: 0.9997482
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.008802043
+      value: -0.0053300625
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008649743
+      value: -0.020439994
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.008649744
+      value: 0.007580096
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
@@ -5522,6 +5531,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e68a70ce45c34dbcd7f6aa3ba2fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "uNameBox\u0421ontrol": {fileID: 0}
+  "uSecondNameBox\u0421ontrol": {fileID: 0}
+  uNameBoxCompetitive: {fileID: 0}
+  uSecondNameBoxCompetitive: {fileID: 0}
 --- !u!114 &1961168385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6117,8 +6130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 0, y: -367.9429}
+  m_SizeDelta: {x: 1920, y: 344.1142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007922674
 MonoBehaviour:
