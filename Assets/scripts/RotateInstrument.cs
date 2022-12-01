@@ -7,8 +7,8 @@ public class RotateInstrument : MonoBehaviour
     public float rotateSpeed; // скорость вращения мышкой
     public float idleRotateSpeed; // скорость вращение в АФК
     public Transform transformObject;
+    public float idle_lim; // время до входа в АФК
     private Quaternion originalPos; // изначальное положение объекта
-    float idle_lim = 5.0f; // время до входа в АФК
     float last_ui = 0.0f;
     bool idle = true; // текущий статус idle
 
