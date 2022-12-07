@@ -7,6 +7,7 @@ public class questionHolder : MonoBehaviour
 {
     public Text Question;
     public Button isRight;
+    public Image isRightImage;
     public Text userAns;
     public Text rightAnsText;
     public Sprite wrong;

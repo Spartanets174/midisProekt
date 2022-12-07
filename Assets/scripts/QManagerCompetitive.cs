@@ -35,10 +35,11 @@ public class QManagerCompetitive : MonoBehaviour
     public Text Grade;
     public Transform Content;
     public GameObject questionForResults;
+    public Sprite optionsAns;
     public bool over=false;
     //Переменные для различных целей
-    int rightQuestions;
-    int NumQuestion = 0;
+    double rightQuestions;
+    double NumQuestion = 0;
     int count = 0;
     int Scores = 0;
     int Combo = 0;
@@ -75,9 +76,10 @@ public class QManagerCompetitive : MonoBehaviour
             if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
             {
                 count++;
-                userAnswer +=$"{i+1} ";
+                userAnswer +=$"{i+1} ";              
             }
         }
+        userAnswer = userAnswer.Trim();
         //Проверяет есть ли ещё вопросы в тесте
         if (IsAnyQ())
         {
@@ -153,7 +155,7 @@ public class QManagerCompetitive : MonoBehaviour
             userAns = userAnswer,
             rightAns = right,
         });
-        Debug.Log($"{resultsQuestions[resultsQuestions.Count-1].textQuestion}, {resultsQuestions[resultsQuestions.Count-1].isRight}, {resultsQuestions[resultsQuestions.Count-1].userAns}, {resultsQuestions[resultsQuestions.Count-1].rightAns}, {resultsQuestions.Count}");
+        //Debug.Log($"{resultsQuestions[resultsQuestions.Count-1].textQuestion}, {resultsQuestions[resultsQuestions.Count-1].isRight}, {resultsQuestions[resultsQuestions.Count-1].userAns}, {resultsQuestions[resultsQuestions.Count-1].rightAns}, {resultsQuestions.Count}");
     }
 
     //Скрипт когда вопросов не осталось
@@ -162,37 +164,54 @@ public class QManagerCompetitive : MonoBehaviour
         Questions.SetActive(false);
         Results.SetActive(true);
         ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion - 1}";
+        Grade.text = "Мегаплох";
+        if (rightQuestions / NumQuestion >= 0.3 && rightQuestions / NumQuestion < 0.5)
+        {
+            Grade.text = "Плох";
+        }
+        if (rightQuestions / NumQuestion >= 0.5f && rightQuestions / NumQuestion < 0.7)
+        {
+            Grade.text = "Норм";
+        }
+        if (rightQuestions / NumQuestion >= 0.7 && rightQuestions / NumQuestion < 0.8)
+        {
+            Grade.text = "Харош";
+        }
+        if (rightQuestions / NumQuestion >= 0.8)
+        {
+            Grade.text = "Мегахарош";
+        }
         ComboResultsTxt.text = $"Комбо: {MaxCombo}";
-        ScoresResultsTxt.text = $"Набрано очков: {Scores}";
-        
-        
+        ScoresResultsTxt.text = $"Набрано очков: {Scores}";               
         for (int i = 0; i < resultsQuestions.Count; i++)
-        {          
-            
-            
+        {                              
             questionForResults.GetComponent<questionHolder>().Question.text = resultsQuestions[i].textQuestion;
             if (resultsQuestions[i].isRight)
             {
-                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().right;
+                questionForResults.GetComponent<questionHolder>().isRightImage.sprite = questionForResults.GetComponent<questionHolder>().right;
                 questionForResults.GetComponent<questionHolder>().isRight.interactable = false;
             }
             else
             {
-                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().wrong;
+                questionForResults.GetComponent<questionHolder>().isRightImage.sprite = questionForResults.GetComponent<questionHolder>().wrong;
                 questionForResults.GetComponent<questionHolder>().isRight.interactable = true;
             }
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             if (resultsQuestions[i].userAns == "")
             {
                 questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: ничего";
             }
             else
             {
-                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+                if (resultsQuestions[i].userAns.Length == 1)
+                {
+                    questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+                }
+                else
+                {
+                    questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано:       {resultsQuestions[i].userAns}";
+                }
             }
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
         }               
     }
@@ -221,8 +240,7 @@ public class QManagerCompetitive : MonoBehaviour
             {
                 answersImg[i].SetActive(true);
                 answers[i].SetActive(true);
-                answersImg[i].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
+                answersImg[i].GetComponent<Image>().sprite = optionsAns;
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
                 answers[i].GetComponent<Text>().text = $"{i + 1}. " + dict[QuestionTypeCurrent].list[currentQuestion].Answers[i];
@@ -233,8 +251,7 @@ public class QManagerCompetitive : MonoBehaviour
         {
             TextOfQuestion.SetActive(true);
             QuestionImg.SetActive(true);
-            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
-            QuestionImg.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
+            QuestionImg.GetComponent<Image>().sprite = optionsAns;
             TextOfQuestion.GetComponent<Text>().text = dict[QuestionTypeCurrent].list[currentQuestion].Text;
             for (int i = 0; i < options.Length; i++)
             {

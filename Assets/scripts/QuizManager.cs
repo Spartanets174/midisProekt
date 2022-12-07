@@ -33,16 +33,16 @@ public class QuizManager : MonoBehaviour
     public Text ComboResultsTxt;
     public Text ScoresResultsTxt;
     public Text Grade;
-
     public Text QuestionTxt;
     public Text ResultsTxt;
     public Text ResultsTime;
+    public Sprite optionsAns;
     questionHolder questionHolder;
     //Переменные для различных целей
-     int NumberTypeQ;
+     double NumberTypeQ;
      int NumberQuestion;
      int totalQuestions = 0;
-     int rightQuestions;
+     double rightQuestions;
      int NumQuestion = 0;
      int count = 0;
     //Для итогов
@@ -94,7 +94,7 @@ public class QuizManager : MonoBehaviour
         next.GetComponent<AnswerScript>().isCorrect = false;
         //Считает кол-во нажатых кнопок
         count = 0;
-        userAnswer = "";
+        userAnswer = "";    
         for (int i = 0; i < options.Length; i++)
         {
             if (options[i].transform.GetChild(1).GetComponent<Toggle>().isOn == true)
@@ -103,6 +103,7 @@ public class QuizManager : MonoBehaviour
                 userAnswer += $"{i + 1} ";
             }
         }
+        userAnswer = userAnswer.Trim();
         //Проверяет есть ли ещё вопросы в тесте
         if (IsAnyQ())
         {
@@ -189,7 +190,19 @@ public class QuizManager : MonoBehaviour
         ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion}";
 
         ResultsTime.text = $"Время на прохождение: {Timer.timerText.text}";
-        Grade.text = Mathf.Round(rightQuestions / 2).ToString();
+        Grade.text = "2";
+        if (rightQuestions / NumQuestion >= 0.5 && rightQuestions / NumQuestion < 0.7)
+        {
+            Grade.text = "3";
+        }
+        if (rightQuestions / NumQuestion >= 0.7 && rightQuestions / NumQuestion < 0.8)
+        {
+            Grade.text = "4";
+        }
+        if (rightQuestions / NumQuestion >= 0.8)
+        {
+            Grade.text = "5";
+        }
         ComboResultsTxt.text = $"{SetQMass.uName}";
         ScoresResultsTxt.text = $"{SetQMass.uSecondName}";
         for (int i = 0; i < resultsQuestions.Count; i++)
@@ -197,26 +210,31 @@ public class QuizManager : MonoBehaviour
             questionForResults.GetComponent<questionHolder>().Question.text = resultsQuestions[i].textQuestion;
             if (resultsQuestions[i].isRight)
             {
-                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().right;
+                questionForResults.GetComponent<questionHolder>().isRightImage.sprite = questionForResults.GetComponent<questionHolder>().right;
                 questionForResults.GetComponent<questionHolder>().isRight.interactable = false;
             }
             else
             {
-                questionForResults.GetComponent<questionHolder>().isRight.image.sprite = questionForResults.GetComponent<questionHolder>().wrong;
+                questionForResults.GetComponent<questionHolder>().isRightImage.sprite = questionForResults.GetComponent<questionHolder>().wrong;
                 questionForResults.GetComponent<questionHolder>().isRight.interactable = true;
             }
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             if (resultsQuestions[i].userAns == "")
             {
                 questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: ничего";
             }
             else
             {
-                questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+                Debug.Log($"{resultsQuestions[i].userAns.Length}");
+                if (resultsQuestions[i].userAns.Length==1)
+                {
+                    questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано: {resultsQuestions[i].userAns}";
+                }
+                else
+                {
+                    questionForResults.GetComponent<questionHolder>().userAns.text = $"Выбрано:       {resultsQuestions[i].userAns}";
+                }               
             }
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
-            Debug.Log($"{resultsQuestions[i].textQuestion}, {resultsQuestions[i].isRight}, {resultsQuestions[i].userAns}, {resultsQuestions[i].rightAns}");
             Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
         }
     }
@@ -244,8 +262,7 @@ public class QuizManager : MonoBehaviour
             {
                 answersImg[i].SetActive(true);
                 answers[i].SetActive(true);
-                answersImg[i].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-                answersImg[i].GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
+                answersImg[i].GetComponent<Image>().sprite = optionsAns;
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
                 answers[i].GetComponent<Text>().text = $"{i + 1}. " + questionsArray[NumQuestion - 1].Answers[i];
@@ -256,8 +273,7 @@ public class QuizManager : MonoBehaviour
         {
             TextOfQuestion.SetActive(true);
             QuestionImg.SetActive(true);
-            QuestionImg.GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
-            QuestionImg.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
+            QuestionImg.GetComponent<Image>().sprite = optionsAns;
             TextOfQuestion.GetComponent<Text>().text = questionsArray[NumQuestion - 1].Text;
             for (int i = 0; i < options.Length; i++)
             {
