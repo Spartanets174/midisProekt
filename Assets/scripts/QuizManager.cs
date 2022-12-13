@@ -53,8 +53,8 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         totalQuestions = 10;
-        Debug.Log($"{SetQMass.setImage}, {SetQMass.setText}, {dict.Count}");
         //Отключение окна интерфейса с результатами при старте
+        Questions.SetActive(true);
         Results.SetActive(false);
         //Массив из текстовх вопросов 
         for (int i = 0; i < 10; i++)

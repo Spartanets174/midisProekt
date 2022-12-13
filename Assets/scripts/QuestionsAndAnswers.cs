@@ -25,8 +25,10 @@ public class QuestionsAnsAnswers
     public string Question;
     public string Text;
     public Sprite ImgOfQuestion;
+    public GameObject ModelInst;
     public string[] Answers;
     public Sprite[] ImgAnswers;
+    public GameObject[] ModelInsts;
     public int[] CorrectAnswer;
 }
 

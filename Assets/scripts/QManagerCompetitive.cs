@@ -53,6 +53,7 @@ public class QManagerCompetitive : MonoBehaviour
 
     private void Start()
     {
+        Questions.SetActive(true);
         Results.SetActive(false);
         resultsQuestions.Clear();
         generateQuestion();
