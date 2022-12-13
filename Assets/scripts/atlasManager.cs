@@ -13,7 +13,7 @@ public class atlasManager : MonoBehaviour
     public GameObject instrumentUI;
     public GameObject ItemAtlas;
     public GameObject description;
-
+    public Text search;
     private GameObject instrument; // появляющаяся моделька
     private Transform instrumentPos;
 
@@ -48,6 +48,8 @@ public class atlasManager : MonoBehaviour
         // уничтожение модельки
         Destroy(instrument);
     }
+
+   
 }
 
 [System.Serializable]
