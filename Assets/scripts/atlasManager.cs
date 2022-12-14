@@ -22,6 +22,7 @@ public class atlasManager : MonoBehaviour
         string nameButton = EventSystem.current.currentSelectedGameObject.name; // получаем имя повляющегося инструмента
         for (int i = 0; i < instrumentInfo.Count; i++) // ищем инструментв в листе
         {
+            Debug.Log(nameButton);
             if (instrumentInfo[i].instrumentName == nameButton)
             {
                 // переключение интерфейса
@@ -29,6 +30,7 @@ public class atlasManager : MonoBehaviour
                 instrumentUI.SetActive(true);
                 // создание модельки инструмента
                 instrument = Instantiate(instrumentInfo[i].instrumentModel) as GameObject;
+                Debug.Log("Okay");
                 instrument.transform.position = new Vector3(0, 0, 0);
                 instrument.transform.rotation = new Quaternion(0, 0, 0, 0);
                 instrumentPos = ItemAtlas.transform;

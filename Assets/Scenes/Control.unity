@@ -4281,8 +4281,8 @@ Canvas:
   m_GameObject: {fileID: 646859797}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 1526589794}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1422724904}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5534,6 +5534,7 @@ MonoBehaviour:
           \u0438 \u0448\u0438\u0440\u043E\u043A\u0438\u0445, \u043D\u043E \u043D\u0435
           \u0433\u043B\u0443\u0431\u043E\u043A\u0438\u0445 \u0440\u0430\u0437\u0440\u0435\u0437\u043E\u0432). "
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0418\u0433\u043B\u044B \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435"
         - "\u041E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439
@@ -5542,6 +5543,11 @@ MonoBehaviour:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0441 \u043F\u0440\u044F\u043C\u044B\u043C\u0438
           \u043B\u0435\u0437\u0432\u0438\u044F\u043C\u0438"
         ImgAnswers: []
+        ModelInsts:
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
         CorrectAnswer: 0200000003000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442
@@ -5556,6 +5562,7 @@ MonoBehaviour:
           \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u043D\u0438\u044F
           \u0438 \u0437\u0430\u0436\u0438\u043C\u0430 \u0441\u043E\u0441\u0443\u0434\u043E\u0432"
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0441 \u043F\u0440\u044F\u043C\u044B\u043C\u0438
           \u043B\u0435\u0437\u0432\u0438\u044F\u043C\u0438 "
@@ -5565,6 +5572,7 @@ MonoBehaviour:
         - "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0445\u0435\u0440\u0430 \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439
           \u043F\u0440\u044F\u043C\u043E\u0439 "
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0200000004000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442
@@ -5580,6 +5588,7 @@ MonoBehaviour:
           \u043E\u0440\u0433\u0430\u043D\u043E\u0432, \u0432 \u0434\u0435\u0442\u0441\u043A\u043E\u0439
           \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0438."
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041D\u0430 \u043E\u0442\u0434\u0435\u043B\u0435\u043D\u0438\u0438 \u043D\u0430\u0434\u043A\u043E\u0441\u0442\u043D\u0438\u0446\u044B"
         - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430
@@ -5588,6 +5597,7 @@ MonoBehaviour:
         - "\u041D\u0430 \u043F\u0430\u0443\u0442\u0438\u043D\u043D\u043E\u0439 \u043E\u0431\u043E\u043B\u043E\u0447\u043A\u0435
           \u043C\u043E\u0437\u0433\u0430 "
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0300000004000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442
@@ -5601,6 +5611,7 @@ MonoBehaviour:
           \u043A\u0438\u0448\u043A\u0438), \u043D\u0430\u0445\u043E\u0434\u044F\u0449\u0438\u0445\u0441\u044F
           \u0432 \u0433\u043B\u0443\u0431\u0438\u043D\u0435 \u0440\u0430\u043D\u044B"
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0412\u0430\u043B\u044C\u043A\u0435\u0440\u0430 "
         - "\u041A\u0443\u043F\u0435\u0440\u0430"
@@ -5609,6 +5620,7 @@ MonoBehaviour:
         - "\u0414\u043B\u044F \u0432\u043C\u0435\u0448\u0430\u0442\u0435\u043B\u044C\u0441\u0442\u0432
           \u043D\u0430 \u043D\u0435\u0436\u043D\u044B\u0445 \u0442\u043A\u0430\u043D\u044F\u0445"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000002000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442:"
@@ -5623,12 +5635,14 @@ MonoBehaviour:
           \u0438 \u0447\u0435\u0442\u044B\u0440\u0435\u0445\u0437\u0443\u0431\u044B\u0435
           \u043A\u0440\u044E\u0447\u043A\u0438"
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430 \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0435 "
         - "\u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430 \u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435"
         - "\u0412\u0430\u043B\u044C\u043A\u0435\u0440\u0430 \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0435"
         - "\u0412\u0430\u043B\u044C\u043A\u0435\u0440\u0430 \u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442:"
@@ -5646,12 +5660,14 @@ MonoBehaviour:
           \u0434\u043B\u044F \u0441\u0448\u0438\u0432\u0430\u043D\u0438\u044F \u043F\u043B\u043E\u0442\u043D\u044B\u0445
           \u0442\u043A\u0430\u043D\u0435\u0439, \u043A\u043E\u0436\u0438.  "
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0420\u0435\u0436\u0443\u0449\u0430\u044F \u0438\u0433\u043B\u0430 "
         - "\u041A\u043E\u043B\u044E\u0449\u0430\u044F \u0438\u0433\u043B\u0430 "
         - "\u0417\u043E\u043D\u0434 \u041A\u043E\u0445\u0435\u0440\u0430"
         - "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000002000000
       - questionType: 1
         Question: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0442\u0435\u043A\u0441\u0442:"
@@ -5669,12 +5685,14 @@ MonoBehaviour:
           \u0413\u043E\u0441\u0441\u0435 \u0438\u043B\u0438 \u0440\u0430\u043D\u043E\u0440\u0430\u0441\u0448\u0438\u0440\u0438\u0442\u0435\u043B\u044C-___
           \u041A\u043E\u0445\u0435\u0440\u0430"
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0420\u0435\u0435\u0447\u043D\u044B\u0439"
         - "\u0417\u0435\u0440\u043A\u0430\u043B\u043E"
         - "\u0420\u0430\u043D\u043E\u0440\u0430\u0441\u0448\u0438\u0440\u0438\u0442\u0435\u043B\u044C"
         - "\u0428\u043F\u0430\u0442\u0435\u043B\u044C"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000002000000
     - list:
       - questionType: 0
@@ -5683,6 +5701,7 @@ MonoBehaviour:
           \u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430 \u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0414\u043B\u044F \u0431\u043E\u043A\u043E\u0432\u043E\u0433\u043E \u043F\u0435\u0440\u0435\u0436\u0430\u0442\u0438\u044F"
         - "\u0420\u0430\u0437\u0434\u0432\u0438\u0433\u0430\u043D\u0438\u044F \u0442\u043A\u0430\u043D\u0435\u0439
@@ -5692,6 +5711,7 @@ MonoBehaviour:
         - "\u0420\u0430\u0441\u0441\u0435\u0447\u0435\u043D\u0438\u0435 \u0442\u043A\u0430\u043D\u0435\u0439
           \u0432 \u043D\u0435\u0433\u043B\u0443\u0431\u043E\u043A\u0438\u0445 \u0440\u0430\u043D\u0430\u0445"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 0
         Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0435
@@ -5699,6 +5719,7 @@ MonoBehaviour:
           \xAB\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0412\u0432\u0435\u0434\u0435\u043D\u0438\u0435 \u0442\u0430\u043C\u043F\u043E\u043D\u0430
           \u0432 \u0433\u043B\u0443\u0431\u043E\u043A\u0443\u044E \u0440\u0430\u043D\u0443 "
@@ -5711,6 +5732,7 @@ MonoBehaviour:
           \u0447\u0435\u0440\u0435\u0437 \u0434\u043B\u0438\u043D\u043D\u044B\u0439
           \u0443\u0437\u043A\u0438\u0439 \u043A\u0430\u043D\u0430\u043B "
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000004000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u043E\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442
@@ -5720,6 +5742,7 @@ MonoBehaviour:
           \u0438\u0433\u043B\u044B \u0447\u0435\u0440\u0435\u0437 \u0442\u043A\u0430\u043D\u0438:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0428\u043F\u0430\u0442\u0435\u043B\u044C \u0420\u0435\u0432\u0435\u0440\u0434\u0435\u043D\u0430"
         - "\u0417\u043E\u043D\u0434 \u041A\u043E\u0445\u0435\u0440\u0430"
@@ -5727,6 +5750,7 @@ MonoBehaviour:
           \u0413\u043E\u0441\u0441\u0435"
         - "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 04000000
       - questionType: 0
         Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0435
@@ -5735,6 +5759,7 @@ MonoBehaviour:
           \u043B\u0435\u0437\u0432\u0438\u044F\u043C\u0438 (\u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435)\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041F\u0440\u0435\u043F\u0430\u0440\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 "
         - "\u041E\u0442\u0434\u0435\u043B\u0435\u043D\u0438\u044F \u043A\u043E\u0436\u043D\u043E-\u043F\u043E\u0434\u043A\u043E\u0436\u043D\u043E\u0433\u043E
@@ -5744,6 +5769,7 @@ MonoBehaviour:
         - "\u041A\u043E\u0440\u0440\u0435\u043A\u0442\u0438\u0440\u043E\u0432\u043A\u0438
           \u043A\u0440\u0430\u0451\u0432 \u0440\u0430\u043D\u044B"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000002000000
       - questionType: 0
         Question: "\u0413\u0434\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
@@ -5751,6 +5777,7 @@ MonoBehaviour:
           \u043F\u0438\u043D\u0446\u0435\u0442\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0423\u0434\u043E\u0431\u043D\u043E \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044C
           \u0442\u043A\u0430\u043D\u0438, \u043F\u043E\u0434\u0430\u0432\u0430\u0442\u044C
@@ -5766,6 +5793,7 @@ MonoBehaviour:
           \u0442\u043A\u0430\u043D\u0438 \u2014 \u0444\u0430\u0441\u0446\u0438\u0438,
           \u0430\u043F\u043E\u043D\u0435\u0432\u0440\u043E\u0437, \u043A\u043E\u0436\u0443"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 0
         Question: "\u0413\u0434\u0435 \u043F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
@@ -5773,6 +5801,7 @@ MonoBehaviour:
           \u0446\u0430\u043F\u043A\u0438\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u044E\u0442 \u043D\u0430 \u043F\u0430\u0443\u0442\u0438\u043D\u043D\u043E\u0439
           \u043E\u0431\u043E\u043B\u043E\u0447\u043A\u0435 \u043C\u043E\u0437\u0433\u0430"
@@ -5787,6 +5816,7 @@ MonoBehaviour:
           \u0438 \u043E\u043F\u0435\u0440\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u043C
           \u0441\u0442\u043E\u043B\u0438\u043A\u0435"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0300000004000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u043E\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442
@@ -5794,6 +5824,7 @@ MonoBehaviour:
           \u043D\u043E \u043D\u0435 \u0448\u0438\u0440\u043E\u043A\u0438\u0445 \u0440\u0430\u0437\u0440\u0435\u0437\u043E\u0432:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0421\u043A\u0430\u043B\u044C\u043F\u0435\u043B\u044C \u0431\u0440\u044E\u0448\u0438\u0441\u0442\u044B\u0439"
         - "\u0418\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435 \u043F\u043E \u0440\u0435\u0431\u0440\u0443
@@ -5801,6 +5832,7 @@ MonoBehaviour:
         - "\u0421\u043A\u0430\u043B\u044C\u043F\u0435\u043B\u044C \u043E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439 "
         - "\u0417\u043E\u043D\u0434 \u0436\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442
@@ -5810,6 +5842,7 @@ MonoBehaviour:
           \u0438\u0445 \u043D\u0435\u043F\u0440\u043E\u0447\u043D\u043E:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0445\u0435\u0440\u0430"
         - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430
@@ -5818,6 +5851,7 @@ MonoBehaviour:
           \u043F\u0440\u044F\u043C\u043E\u0439 "
         - "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0200000003000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442
@@ -5827,6 +5861,7 @@ MonoBehaviour:
           \u0438\u0445 \u043D\u0435\u043F\u0440\u043E\u0447\u043D\u043E:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0421\u043A\u0430\u043B\u044C\u043F\u0435\u043B\u044C \u0431\u0440\u044E\u0448\u0438\u0441\u0442\u044B\u0439"
         - "\u0418\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435 \u043F\u043E \u0440\u0435\u0431\u0440\u0443
@@ -5834,6 +5869,7 @@ MonoBehaviour:
         - "\u0421\u043A\u0430\u043B\u044C\u043F\u0435\u043B\u044C \u043E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439 "
         - "\u0417\u043E\u043D\u0434 \u0436\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 0
         Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0431\u043B\u0430\u0441\u0442\u044C
@@ -5842,6 +5878,7 @@ MonoBehaviour:
           \u041A\u0443\u043F\u0435\u0440\u0430\xBB:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0423\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044E\u0442 \u043F\u043B\u043E\u0442\u043D\u044B\u0435
           \u0442\u043A\u0430\u043D\u0438 \u2014 \u0444\u0430\u0441\u0446\u0438\u0438,
@@ -5859,6 +5896,7 @@ MonoBehaviour:
           \u043E\u0440\u0433\u0430\u043D\u043E\u0432, \u043E\u0431\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044F
           \u043F\u043E\u043B\u043E\u0441\u0442\u0435\u0439 \u0438 \u0440\u0430\u043D"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u0438\u0435 \u043D\u043E\u0436\u043D\u0438\u0446\u044B
@@ -5869,6 +5907,7 @@ MonoBehaviour:
           \u043E\u043F\u0435\u0440\u0430\u0446\u0438\u0439:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435
           \u043D\u043E\u0436\u043D\u0438\u0446\u044B "
@@ -5879,6 +5918,7 @@ MonoBehaviour:
         - "\u041E\u0441\u0442\u0440\u043E\u0442\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0435
           \u043D\u043E\u0436\u043D\u0438\u0446\u044B "
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000004000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u0438\u043C\u0438 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438
@@ -5888,6 +5928,7 @@ MonoBehaviour:
           \u0442\u043A\u0430\u043D\u044C:"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041A\u0440\u044E\u0447\u043A\u0438 \u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430"
         - "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
@@ -5896,6 +5937,7 @@ MonoBehaviour:
         - "\u0410\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439
           \u043F\u0438\u043D\u0446\u0435\u0442"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0300000004000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u0438\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B,
@@ -5905,12 +5947,14 @@ MonoBehaviour:
           \u043E\u0440\u0433\u0430\u043D\u043E\u0432: "
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0417\u043E\u043D\u0434 \u0436\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439 "
         - "\u0417\u043E\u043D\u0434 \u043F\u0443\u0433\u043E\u0432\u0447\u0430\u0442\u044B\u0439 "
         - "\u041A\u0443\u0441\u0430\u0447\u043A\u0438 \u0414\u0430\u043B\u044C\u0433\u0440\u0435\u043D\u0430"
         - "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000002000000
       - questionType: 0
         Question: "\u041A\u0430\u043A\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442
@@ -5920,6 +5964,7 @@ MonoBehaviour:
           \u043F\u0440\u0438 \u043D\u0435\u0439\u0440\u043E\u0445\u0438\u0445\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0445\u0438?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043C\u043E\u0437\u0433\u043E\u0432\u044B\u0435 "
         - "\u041A\u0443\u0441\u0430\u0447\u043A\u0438 \u0414\u0430\u043B\u044C\u0433\u0440\u0435\u043D\u0430"
@@ -5928,6 +5973,7 @@ MonoBehaviour:
         - "\u041A\u043E\u0441\u0442\u043E\u0434\u0435\u0440\u043E\u0436\u0430\u0442\u0435\u043B\u044C
           \u041E\u043B\u044C\u0435"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 0
         Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0437\u0430\u0436\u0438\u043C\u044B:
@@ -5935,12 +5981,14 @@ MonoBehaviour:
           \u0438 \u0432\u0441\u043F\u043E\u043C\u043E\u0433\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u0417\u0430\u0436\u0438\u043C \u0424\u0435\u0434\u043E\u0440\u043E\u0432\u0430 "
         - "\u041F\u0435\u0447\u0435\u043D\u043E\u0447\u043D\u043E\u0435 \u0437\u0435\u0440\u043A\u0430\u043B\u043E"
         - "\u0417\u0430\u0436\u0438\u043C \u041C\u0438\u043A\u0443\u043B\u0438\u0447\u0430 "
         - "\u0416\u043E\u043C \u044D\u043B\u0430\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000003000000
       - questionType: 0
         Question: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
@@ -5950,6 +5998,7 @@ MonoBehaviour:
           \u0438\u0437 \u043E\u0440\u0433\u0430\u043D\u0430."
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041F\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u0438\u0433\u043B\u0430 "
         - "\u0416\u0433\u0443\u0442"
@@ -5957,6 +6006,7 @@ MonoBehaviour:
           \u201C\u0433\u0440\u0443\u0448\u0430\u201D"
         - "\u0420\u0430\u0441\u043F\u0430\u0440\u0430\u0442\u043E\u0440"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 0
         Question: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0435
@@ -5966,6 +6016,7 @@ MonoBehaviour:
           \u043D\u043E\u0436\u0438"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers:
         - "\u041F\u043E \u0440\u0430\u0437\u043C\u0435\u0440\u0443 \u043D\u043E\u0436\u0438
           \u0434\u0435\u043B\u044F\u0442\u0441\u044F \u043D\u0430 \u043C\u0430\u043B\u044B\u0435,
@@ -5983,6 +6034,7 @@ MonoBehaviour:
           \u0434\u043B\u044F \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044F \u0437\u0443\u0431\u043D\u044B\u0445
           \u043D\u0435\u0440\u0432\u043E\u0432"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 0100000003000000
     - list:
       - questionType: 2
@@ -5990,12 +6042,18 @@ MonoBehaviour:
           \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D \u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 42d46ab2b511c1f4d916d9d76618bdd0, type: 3}
         - {fileID: 21300000, guid: de2f2c7cb4989d447a024af082070f59, type: 3}
         - {fileID: 21300000, guid: 0852e64799582314e8054d7d71a46210, type: 3}
         - {fileID: 21300000, guid: dbeb8e2f1306b4a4d96ef45b6aab59fb, type: 3}
+        ModelInsts:
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606, type: 3}
+        - {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881, type: 3}
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
         CorrectAnswer: 03000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6003,12 +6061,18 @@ MonoBehaviour:
           \u0446\u0430\u043F\u043A\u0438?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55, type: 3}
         - {fileID: 21300000, guid: f76e93ad3f406b5498ece9767dc327f2, type: 3}
         - {fileID: 21300000, guid: 1681cdc2d23063547946e95b41599fe7, type: 3}
         - {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55, type: 3}
+        ModelInsts:
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 8227143549583178039, guid: fef0ce90536b3ca4abcb9abd14c640bf, type: 3}
+        - {fileID: 3190906578011773978, guid: 6291a8dcebb9fcc4896214d8f06a6bd1, type: 3}
+        - {fileID: 7744747168666273468, guid: 9363e8ccf4a065e4dbc9df68bae04e65, type: 3}
         CorrectAnswer: 02000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6016,12 +6080,18 @@ MonoBehaviour:
           \u0411\u0438\u043B\u044C\u043E\u0440\u0442\u0430?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: dbeb8e2f1306b4a4d96ef45b6aab59fb, type: 3}
         - {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe, type: 3}
         - {fileID: 21300000, guid: 1681cdc2d23063547946e95b41599fe7, type: 3}
         - {fileID: 21300000, guid: 4ac7f596e174ebb4c8a370a1e72a5512, type: 3}
+        ModelInsts:
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 6599831356181279409, guid: 013afd9cfa31a55479de10d2a7fd6c7d, type: 3}
+        - {fileID: 5631447621491227938, guid: 9d87fa8cfce1bf34a92156dd47e5a885, type: 3}
+        - {fileID: 127647119788261116, guid: 29d3056cbad7c1849a627222b559c9e6, type: 3}
         CorrectAnswer: 04000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6029,12 +6099,18 @@ MonoBehaviour:
           \u041A\u043E\u0440\u0445\u0435\u0440\u0430?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe, type: 3}
         - {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe, type: 3}
         - {fileID: 21300000, guid: 8f5965ef057e97a45941704a6f1d52a9, type: 3}
         - {fileID: 21300000, guid: 42d46ab2b511c1f4d916d9d76618bdd0, type: 3}
+        ModelInsts:
+        - {fileID: 929621742785346285, guid: 677ec751a7823ee4c96155df0f3c2ec7, type: 3}
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
+        - {fileID: 7744747168666273468, guid: 9363e8ccf4a065e4dbc9df68bae04e65, type: 3}
+        - {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606, type: 3}
         CorrectAnswer: 03000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6042,12 +6118,18 @@ MonoBehaviour:
           \u043C\u043E\u0441\u043A\u0438\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe, type: 3}
         - {fileID: 21300000, guid: dbeb8e2f1306b4a4d96ef45b6aab59fb, type: 3}
         - {fileID: 21300000, guid: 1681cdc2d23063547946e95b41599fe7, type: 3}
         - {fileID: 21300000, guid: 5425916c463d93740b56437b31665a3e, type: 3}
+        ModelInsts:
+        - {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606, type: 3}
+        - {fileID: 3190906578011773978, guid: 6291a8dcebb9fcc4896214d8f06a6bd1, type: 3}
+        - {fileID: 1660673964386632757, guid: 9b8c206732b56944f85aed7674584488, type: 3}
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
         CorrectAnswer: 02000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6055,12 +6137,18 @@ MonoBehaviour:
           \u043D\u043E\u0436\u043D\u0438\u0446\u044B?"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: dbeb8e2f1306b4a4d96ef45b6aab59fb, type: 3}
         - {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe, type: 3}
         - {fileID: 21300000, guid: de2f2c7cb4989d447a024af082070f59, type: 3}
         - {fileID: 21300000, guid: 90b9bef3320da2c4bbc03925335ac536, type: 3}
+        ModelInsts:
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
+        - {fileID: 5631447621491227938, guid: 9d87fa8cfce1bf34a92156dd47e5a885, type: 3}
+        - {fileID: 448981847306379650, guid: 40fd29b9ba086554ca0870338c593405, type: 3}
         CorrectAnswer: 03000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6068,12 +6156,18 @@ MonoBehaviour:
           \u0424\u0430\u0440\u0430\u0431\u0435\u0444\u0430"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 1513205a9c532454383ebb6aa6536213, type: 3}
         - {fileID: 21300000, guid: 5dd2b00c7ef9cb84eabef36c42e89b60, type: 3}
         - {fileID: 21300000, guid: 057a37226a5a9604d9f7d30774dbb3d0, type: 3}
         - {fileID: 21300000, guid: c97265d3baa9fd24eb4e7440bf9fb598, type: 3}
+        ModelInsts:
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
+        - {fileID: 3190906578011773978, guid: 6291a8dcebb9fcc4896214d8f06a6bd1, type: 3}
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 6744504946308090641, guid: 4abf280cbf5d37f499c8d2d25e346568, type: 3}
         CorrectAnswer: 01000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6081,12 +6175,18 @@ MonoBehaviour:
           \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 5f33a32e6666da542acf646ecce00d8f, type: 3}
         - {fileID: 21300000, guid: 5dd2b00c7ef9cb84eabef36c42e89b60, type: 3}
         - {fileID: 21300000, guid: 057a37226a5a9604d9f7d30774dbb3d0, type: 3}
         - {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55, type: 3}
+        ModelInsts:
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 1660673964386632757, guid: 9b8c206732b56944f85aed7674584488, type: 3}
+        - {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881, type: 3}
         CorrectAnswer: 03000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6094,12 +6194,18 @@ MonoBehaviour:
           \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55, type: 3}
         - {fileID: 21300000, guid: 5dd2b00c7ef9cb84eabef36c42e89b60, type: 3}
         - {fileID: 21300000, guid: 057a37226a5a9604d9f7d30774dbb3d0, type: 3}
         - {fileID: 21300000, guid: 1513205a9c532454383ebb6aa6536213, type: 3}
+        ModelInsts:
+        - {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a, type: 3}
+        - {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881, type: 3}
+        - {fileID: 4298764404114645028, guid: 39ebb8392fdd46f479d6421a19adc6e7, type: 3}
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
         CorrectAnswer: 02000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6107,12 +6213,18 @@ MonoBehaviour:
           \u0437\u043E\u043D\u0434"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 5dd2b00c7ef9cb84eabef36c42e89b60, type: 3}
         - {fileID: 21300000, guid: 1513205a9c532454383ebb6aa6536213, type: 3}
         - {fileID: 21300000, guid: 51afdcbbac7bd3746a6bbe357ab466ae, type: 3}
         - {fileID: 21300000, guid: c97265d3baa9fd24eb4e7440bf9fb598, type: 3}
+        ModelInsts:
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 4298764404114645028, guid: 39ebb8392fdd46f479d6421a19adc6e7, type: 3}
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 2100812479629347760, guid: 3043858184e3fdf41bcd617406389f29, type: 3}
         CorrectAnswer: 04000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6120,12 +6232,18 @@ MonoBehaviour:
           \u0437\u043E\u043D\u0434"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 32e19829b8b7f4441bc7b52ee467c2d1, type: 3}
         - {fileID: 21300000, guid: 5425916c463d93740b56437b31665a3e, type: 3}
         - {fileID: 21300000, guid: 9f8ba8daee4c911489e1b6aa07f9f961, type: 3}
         - {fileID: 21300000, guid: 82a10c6b26a03844e9f2739942a2f1d0, type: 3}
+        ModelInsts:
+        - {fileID: 6744504946308090641, guid: 4abf280cbf5d37f499c8d2d25e346568, type: 3}
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881, type: 3}
+        - {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606, type: 3}
         CorrectAnswer: 01000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6133,24 +6251,36 @@ MonoBehaviour:
           \u041A\u043E\u0445\u0435\u0440\u0430"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 82a10c6b26a03844e9f2739942a2f1d0, type: 3}
         - {fileID: 21300000, guid: 5425916c463d93740b56437b31665a3e, type: 3}
         - {fileID: 21300000, guid: 32e19829b8b7f4441bc7b52ee467c2d1, type: 3}
         - {fileID: 21300000, guid: c97265d3baa9fd24eb4e7440bf9fb598, type: 3}
+        ModelInsts:
+        - {fileID: 6744504946308090641, guid: 4abf280cbf5d37f499c8d2d25e346568, type: 3}
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 1660673964386632757, guid: 9b8c206732b56944f85aed7674584488, type: 3}
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
         CorrectAnswer: 02000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
           \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D \u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 42d46ab2b511c1f4d916d9d76618bdd0, type: 3}
         - {fileID: 21300000, guid: 90b9bef3320da2c4bbc03925335ac536, type: 3}
         - {fileID: 21300000, guid: 1681cdc2d23063547946e95b41599fe7, type: 3}
         - {fileID: 21300000, guid: 8f5965ef057e97a45941704a6f1d52a9, type: 3}
+        ModelInsts:
+        - {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606, type: 3}
+        - {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3, type: 3}
+        - {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881, type: 3}
+        - {fileID: 4298764404114645028, guid: 39ebb8392fdd46f479d6421a19adc6e7, type: 3}
         CorrectAnswer: 01000000
       - questionType: 2
         Question: "\u041D\u0430 \u043A\u0430\u043A\u043E\u0439 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0435
@@ -6158,18 +6288,26 @@ MonoBehaviour:
           \u0438\u0433\u043B\u044B"
         Text: 
         ImgOfQuestion: {fileID: 0}
+        ModelInst: {fileID: 0}
         Answers: []
         ImgAnswers:
         - {fileID: 21300000, guid: 15d50da4e044cd3419a2dfb555eefdea, type: 3}
         - {fileID: 21300000, guid: 32e19829b8b7f4441bc7b52ee467c2d1, type: 3}
         - {fileID: 21300000, guid: 1513205a9c532454383ebb6aa6536213, type: 3}
         - {fileID: 21300000, guid: 82a10c6b26a03844e9f2739942a2f1d0, type: 3}
+        ModelInsts:
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 4936416007811510407, guid: d459358980914384086240172d399323, type: 3}
+        - {fileID: 1660673964386632757, guid: 9b8c206732b56944f85aed7674584488, type: 3}
+        - {fileID: 6695252508648066793, guid: cc8496bc6277e614aa885ad222ece222, type: 3}
         CorrectAnswer: 04000000
     - list:
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 0852e64799582314e8054d7d71a46210,
+          type: 3}
+        ModelInst: {fileID: 5553985477056100925, guid: 82e8a5dbbc2cf5d4697e8b7fe86f9881,
           type: 3}
         Answers:
         - "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433"
@@ -6178,11 +6316,14 @@ MonoBehaviour:
           (\u0431\u043E\u043B\u044C\u0448\u043E\u0439)"
         - "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: f76e93ad3f406b5498ece9767dc327f2,
+          type: 3}
+        ModelInst: {fileID: 8227143549583178039, guid: fef0ce90536b3ca4abcb9abd14c640bf,
           type: 3}
         Answers:
         - "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
@@ -6192,23 +6333,14 @@ MonoBehaviour:
         - "\u041E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439
           \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 4ac7f596e174ebb4c8a370a1e72a5512,
           type: 3}
-        Answers:
-        - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
-        - "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0440\u0445\u0435\u0440\u0430"
-        - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
-        - "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
-        ImgAnswers: []
-        CorrectAnswer: 03000000
-      - questionType: 3
-        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
-        Text: 
-        ImgOfQuestion: {fileID: 21300000, guid: 8f5965ef057e97a45941704a6f1d52a9,
+        ModelInst: {fileID: 127647119788261116, guid: 29d3056cbad7c1849a627222b559c9e6,
           type: 3}
         Answers:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
@@ -6216,11 +6348,29 @@ MonoBehaviour:
         - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
         - "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
         ImgAnswers: []
+        ModelInsts: []
+        CorrectAnswer: 03000000
+      - questionType: 3
+        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
+        Text: 
+        ImgOfQuestion: {fileID: 21300000, guid: 8f5965ef057e97a45941704a6f1d52a9,
+          type: 3}
+        ModelInst: {fileID: 7744747168666273468, guid: 9363e8ccf4a065e4dbc9df68bae04e65,
+          type: 3}
+        Answers:
+        - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
+        - "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0440\u0445\u0435\u0440\u0430"
+        - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
+        - "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
+        ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 02000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: e12715a9aeaa0ee42aeec242677caabe,
+          type: 3}
+        ModelInst: {fileID: 7083609849035808891, guid: 0d75c2f2085e7084a860fc7452885bc3,
           type: 3}
         Answers:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
@@ -6230,11 +6380,14 @@ MonoBehaviour:
           \u043F\u043E \u043F\u043B\u043E\u0441\u043A\u043E\u0441\u0442\u0438"
         - "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: de2f2c7cb4989d447a024af082070f59,
+          type: 3}
+        ModelInst: {fileID: 5631447621491227938, guid: 9d87fa8cfce1bf34a92156dd47e5a885,
           type: 3}
         Answers:
         - "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
@@ -6242,12 +6395,15 @@ MonoBehaviour:
         - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0441\u043A\u0438\u0439"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: a11f965563cf7f641ab7ce91775bd0d8,
           type: 3}
+        ModelInst: {fileID: 448981847306379650, guid: 40fd29b9ba086554ca0870338c593405,
+          type: 3}
         Answers:
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
           (\u043C\u0430\u043B\u044B\u0439)"
@@ -6256,25 +6412,14 @@ MonoBehaviour:
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 51afdcbbac7bd3746a6bbe357ab466ae,
           type: 3}
-        Answers:
-        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
-          (\u043C\u0430\u043B\u044B\u0439)"
-        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
-          (\u0431\u043E\u043B\u044C\u0448\u043E\u0439)"
-        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
-        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
-        ImgAnswers: []
-        CorrectAnswer: 02000000
-      - questionType: 3
-        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
-        Text: 
-        ImgOfQuestion: {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55,
+        ModelInst: {fileID: 3033229052902508310, guid: 74244191f9bc82d4991eb59a8c62f8cd,
           type: 3}
         Answers:
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
@@ -6284,11 +6429,31 @@ MonoBehaviour:
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
         - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
         ImgAnswers: []
+        ModelInsts: []
+        CorrectAnswer: 02000000
+      - questionType: 3
+        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
+        Text: 
+        ImgOfQuestion: {fileID: 21300000, guid: 21edb5242a541134fbc69f10955b9d55,
+          type: 3}
+        ModelInst: {fileID: 929621742785346285, guid: 677ec751a7823ee4c96155df0f3c2ec7,
+          type: 3}
+        Answers:
+        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
+          (\u043C\u0430\u043B\u044B\u0439)"
+        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u043B\u0430\u043F\u0447\u0430\u0442\u044B\u0439
+          (\u0431\u043E\u043B\u044C\u0448\u043E\u0439)"
+        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
+        - "\u041F\u0438\u043D\u0446\u0435\u0442 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
+        ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 5dd2b00c7ef9cb84eabef36c42e89b60,
+          type: 3}
+        ModelInst: {fileID: 7167155612451732472, guid: 0a97c406c0c51214a95c63f62015f92a,
           type: 3}
         Answers:
         - "\u041E\u0441\u0442\u0440\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439
@@ -6298,25 +6463,14 @@ MonoBehaviour:
           \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A  "
         - "\u0416\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439 \u0437\u043E\u043D\u0434"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 32e19829b8b7f4441bc7b52ee467c2d1,
           type: 3}
-        Answers:
-        - "\u0416\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439 \u0437\u043E\u043D\u0434"
-        - "\u0422\u0443\u043F\u043E\u0433\u043E\u043B\u043E\u0432\u044B\u0439 \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439
-          \u043A\u0440\u044E\u0447\u043E\u043A"
-        - "\u0417\u043E\u043D\u0434 \u041A\u043E\u0445\u0435\u0440\u0430"
-        - "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
-          \u0438\u0433\u043B\u0430"
-        ImgAnswers: []
-        CorrectAnswer: 01000000
-      - questionType: 3
-        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
-        Text: 
-        ImgOfQuestion: {fileID: 21300000, guid: 5425916c463d93740b56437b31665a3e,
+        ModelInst: {fileID: 6744504946308090641, guid: 4abf280cbf5d37f499c8d2d25e346568,
           type: 3}
         Answers:
         - "\u0416\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439 \u0437\u043E\u043D\u0434"
@@ -6326,11 +6480,31 @@ MonoBehaviour:
         - "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
           \u0438\u0433\u043B\u0430"
         ImgAnswers: []
+        ModelInsts: []
+        CorrectAnswer: 01000000
+      - questionType: 3
+        Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
+        Text: 
+        ImgOfQuestion: {fileID: 21300000, guid: 5425916c463d93740b56437b31665a3e,
+          type: 3}
+        ModelInst: {fileID: 4936416007811510407, guid: d459358980914384086240172d399323,
+          type: 3}
+        Answers:
+        - "\u0416\u0435\u043B\u043E\u0431\u043E\u0432\u0430\u0442\u044B\u0439 \u0437\u043E\u043D\u0434"
+        - "\u0422\u0443\u043F\u043E\u0433\u043E\u043B\u043E\u0432\u044B\u0439 \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439
+          \u043A\u0440\u044E\u0447\u043E\u043A"
+        - "\u0417\u043E\u043D\u0434 \u041A\u043E\u0445\u0435\u0440\u0430"
+        - "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
+          \u0438\u0433\u043B\u0430"
+        ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 03000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 42d46ab2b511c1f4d916d9d76618bdd0,
+          type: 3}
+        ModelInst: {fileID: 6263527737295723239, guid: 1c24882adaa14ad409d367336123b606,
           type: 3}
         Answers:
         - "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433\u0435\u0440"
@@ -6338,11 +6512,14 @@ MonoBehaviour:
         - "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
         - "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 02000000
       - questionType: 3
         Question: "\u0427\u0442\u043E \u044D\u0442\u043E \u0437\u0430 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442?"
         Text: 
         ImgOfQuestion: {fileID: 21300000, guid: 82a10c6b26a03844e9f2739942a2f1d0,
+          type: 3}
+        ModelInst: {fileID: 6695252508648066793, guid: cc8496bc6277e614aa885ad222ece222,
           type: 3}
         Answers:
         - "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
@@ -6353,77 +6530,98 @@ MonoBehaviour:
         - "\u0422\u0443\u043F\u043E\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439
           \u0437\u0443\u0431\u0447\u0430\u0442\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A"
         ImgAnswers: []
+        ModelInsts: []
         CorrectAnswer: 01000000
   questionsArray:
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   - questionType: 0
     Question: 
     Text: 
     ImgOfQuestion: {fileID: 0}
+    ModelInst: {fileID: 0}
     Answers: []
     ImgAnswers: []
+    ModelInsts: []
     CorrectAnswer: 
   answerScript: {fileID: 935401141}
   Timer: {fileID: 869345032}
@@ -7072,7 +7270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21.3766, y: 3.395996}
+  m_AnchoredPosition: {x: 21.376587, y: 3.395996}
   m_SizeDelta: {x: 42.7533, y: 6.779999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1120311929
@@ -7896,6 +8094,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1422724903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422724905}
+  - component: {fileID: 1422724904}
+  m_Layer: 0
+  m_Name: Canvas Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &1422724904
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422724903}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 32
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1422724905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422724903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1429447656
 GameObject:
   m_ObjectHideFlags: 0
@@ -8535,7 +8808,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 407
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -135,6 +135,18 @@ public class QuizManager : MonoBehaviour
                 }
             }
         }
+        if (QuestionTypeCurrent.ToString() == "QuestionTextOptionImg")
+        {
+            for (int i = 0; i < answers.Length; i++)
+            {
+                Destroy(answersImg[i].transform.GetChild(1).gameObject);             
+            }
+            //Instantiate(questionsArray[NumQuestion - 1].ModelInsts[i], questionsArray[NumQuestion - 1].ModelInsts[i].transform.position, questionsArray[NumQuestion - 1].ModelInsts[i].transform.rotation, answersImg[i].transform);
+        }
+        if (QuestionTypeCurrent.ToString() == "OptionTextQuestionImg")
+        {
+            Destroy(QuestionImg.transform.GetChild(1).gameObject);
+        }
     }
     //Скрипт для кнопки назад
     public void Back()
@@ -142,6 +154,17 @@ public class QuizManager : MonoBehaviour
         if (NumQuestion > 1)
         {
             Debug.Log($"{resultsQuestions.Count}, {NumQuestion}");
+            if (QuestionTypeCurrent.ToString() == "QuestionTextOptionImg")
+            {
+                for (int i = 0; i < answers.Length; i++)
+                {
+                    Destroy(answersImg[i].transform.GetChild(1).gameObject);
+                }
+            }
+            if (QuestionTypeCurrent.ToString() == "OptionTextQuestionImg")
+            {
+                Destroy(QuestionImg.transform.GetChild(1).gameObject);
+            }
             resultsQuestions.Remove(resultsQuestions[NumQuestion - 2]);
             NumQuestion--;
             QuestionTypeCurrent = questionsArray[NumQuestion - 1].questionType;
@@ -155,8 +178,7 @@ public class QuizManager : MonoBehaviour
             for (int i = 0; i < options.Length; i++)
             {
                 options[i].transform.GetChild(1).GetComponent<Toggle>().isOn = false;                
-            }            
-            next.GetComponent<AnswerScript>().isCorrect = false;
+            }                                 
             SetAnswers();
         }
     }
@@ -235,7 +257,9 @@ public class QuizManager : MonoBehaviour
                 }               
             }
             questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
-            Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
+            GameObject lol = Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
+            lol.transform.localPosition = Vector3.zero;
+            
         }
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
@@ -293,7 +317,9 @@ public class QuizManager : MonoBehaviour
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(255, 255, 255, 1);
-                answersImg[i].GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgAnswers[i];
+                GameObject lol = Instantiate(questionsArray[NumQuestion - 1].ModelInsts[i], questionsArray[NumQuestion - 1].ModelInsts[i].transform.position, questionsArray[NumQuestion - 1].ModelInsts[i].transform.rotation, answersImg[i].transform);
+                lol.transform.localPosition = questionsArray[NumQuestion - 1].ModelInsts[i].transform.position;
+                //answersImg[i].GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgAnswers[i];
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
@@ -304,7 +330,9 @@ public class QuizManager : MonoBehaviour
             TextOfQuestion.SetActive(false);
             QuestionImg.SetActive(true);
             QuestionImg.GetComponent<Image>().color = new Color(255, 255, 255, 1);
-            QuestionImg.GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
+            GameObject lol = Instantiate(questionsArray[NumQuestion - 1].ModelInst, questionsArray[NumQuestion - 1].ModelInst.transform.position, questionsArray[NumQuestion - 1].ModelInst.transform.rotation, QuestionImg.transform);
+            lol.transform.localPosition = questionsArray[NumQuestion - 1].ModelInst.transform.position;
+            //QuestionImg.GetComponent<Image>().sprite = questionsArray[NumQuestion - 1].ImgOfQuestion;
             for (int i = 0; i < options.Length; i++)
             {
                 answers[i].SetActive(false);
