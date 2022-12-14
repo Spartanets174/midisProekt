@@ -140,6 +140,18 @@ public class QManagerCompetitive : MonoBehaviour
                 MaxCombo = Combo;
             }
         }
+        if (QuestionTypeCurrent.ToString() == "QuestionTextOptionImg")
+        {
+            for (int i = 0; i < answers.Length; i++)
+            {
+                Destroy(answersImg[i].transform.GetChild(1).gameObject);
+            }
+            //Instantiate(questionsArray[NumQuestion - 1].ModelInsts[i], questionsArray[NumQuestion - 1].ModelInsts[i].transform.position, questionsArray[NumQuestion - 1].ModelInsts[i].transform.rotation, answersImg[i].transform);
+        }
+        if (QuestionTypeCurrent.ToString() == "OptionTextQuestionImg")
+        {
+            Destroy(QuestionImg.transform.GetChild(1).gameObject);
+        }
     }
     //Скрипт для итогов
     public void forResults()
@@ -272,7 +284,8 @@ public class QManagerCompetitive : MonoBehaviour
                 answers[i].SetActive(false);
                 answersImg[i].SetActive(true);
                 answersImg[i].GetComponent<Image>().color = new Color(255, 255, 255, 1);
-                answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgAnswers[i];
+                Instantiate(dict[QuestionTypeCurrent].list[currentQuestion].ModelInsts[i], dict[QuestionTypeCurrent].list[currentQuestion].ModelInsts[i].transform.position, dict[QuestionTypeCurrent].list[currentQuestion].ModelInsts[i].transform.rotation, answersImg[i].transform);
+                //answersImg[i].GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgAnswers[i];
                 options[i].transform.GetChild(0).GetComponent<Text>().text = $"Вариант {i + 1}";
                 next.GetComponent<AnswerScript>().isCorrect = false;
             }
@@ -283,7 +296,8 @@ public class QManagerCompetitive : MonoBehaviour
             TextOfQuestion.SetActive(false);
             QuestionImg.SetActive(true);
             QuestionImg.GetComponent<Image>().color = new Color(255, 255, 255, 1);
-            QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
+            Instantiate(dict[QuestionTypeCurrent].list[currentQuestion].ModelInst, dict[QuestionTypeCurrent].list[currentQuestion].ModelInst.transform.position, dict[QuestionTypeCurrent].list[currentQuestion].ModelInst.transform.rotation, QuestionImg.transform);
+            //QuestionImg.GetComponent<Image>().sprite = dict[QuestionTypeCurrent].list[currentQuestion].ImgOfQuestion;
             for (int i = 0; i < options.Length; i++)
             {
                 answers[i].SetActive(false);
