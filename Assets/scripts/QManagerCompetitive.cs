@@ -183,7 +183,11 @@ public class QManagerCompetitive : MonoBehaviour
             Grade.text = "Мегахарош";
         }
         ComboResultsTxt.text = $"Комбо: {MaxCombo}";
-        ScoresResultsTxt.text = $"Набрано очков: {Scores}";               
+        ScoresResultsTxt.text = $"Набрано очков: {Scores}";
+
+        DBscript.userInfo.combo = MaxCombo.ToString();
+        DBscript.userInfo.score = Scores.ToString();
+
         for (int i = 0; i < resultsQuestions.Count; i++)
         {                              
             questionForResults.GetComponent<questionHolder>().Question.text = resultsQuestions[i].textQuestion;
@@ -214,7 +218,8 @@ public class QManagerCompetitive : MonoBehaviour
             }
             questionForResults.GetComponent<questionHolder>().rightAnsText.text = $"Правильный ответ: {resultsQuestions[i].rightAns}";
             Instantiate(questionForResults, Vector3.zero, Quaternion.identity, Content);
-        }               
+        }
+        DBscript.InsertData();
     }
     //Скрипт подсчёта правильных ответов и генерации нового вопроса
     public void correct()

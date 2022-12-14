@@ -47,6 +47,11 @@ public class Menu : MonoBehaviour
         {
             SetQMass.uName = uNameBoxCompetitive.textComponent.text;
             SetQMass.uSecondName = uSecondNameBoxCompetitive.textComponent.text;
+
+            DBscript.userInfo.firstName = uNameBoxCompetitive.textComponent.text;
+            DBscript.userInfo.lastName = uSecondNameBoxCompetitive.textComponent.text;
+            DBscript.userInfo.date = System.DateTime.Now.ToString();
+
             SceneManager.LoadScene("Competitive");
         }        
     }

@@ -1,11 +1,12 @@
 
 using System.Collections.Generic;
+using static LeaderBoard;
 
 public static class  SetQMass 
 {
     public static string uName = "";
     public static string uSecondName = "";
-
+    public static List<Player> leaderList = new List<Player>();
     public static bool setText = false;
     public static bool setImage = false;
         public static void setQuestionText()
