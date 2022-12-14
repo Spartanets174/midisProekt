@@ -68,7 +68,6 @@ public class DBscript : MonoBehaviour
         }
         catch (Exception ex)
         {
-
             Debug.Log(ex.Message);
         }
     }
