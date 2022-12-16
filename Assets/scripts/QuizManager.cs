@@ -209,7 +209,7 @@ public class QuizManager : MonoBehaviour
                 rightQuestions++;
             }
         }
-        ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion}";
+        ResultsTxt.text = $"Вы ответили правильно на {rightQuestions} вопросов из {NumQuestion}";
 
         ResultsTime.text = $"Время на прохождение: {Timer.timerText.text}";
         Grade.text = "2";

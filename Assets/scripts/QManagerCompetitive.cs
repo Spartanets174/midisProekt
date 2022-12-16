@@ -176,23 +176,27 @@ public class QManagerCompetitive : MonoBehaviour
     {
         Questions.SetActive(false);
         Results.SetActive(true);
-        ResultsTxt.text = $"Вы овтетили правильно на {rightQuestions} вопросов из {NumQuestion - 1}";
-        Grade.text = "Мегаплох";
+        ResultsTxt.text = $"Вы ответили правильно на {rightQuestions} вопросов из {NumQuestion - 1}";
+        Grade.text = "Тебе надо больше стараться :(";
         if (rightQuestions / NumQuestion >= 0.3 && rightQuestions / NumQuestion < 0.5)
         {
-            Grade.text = "Плох";
+            Grade.text = "Ты можешь лучше!";
         }
-        if (rightQuestions / NumQuestion >= 0.5f && rightQuestions / NumQuestion < 0.7)
+        if (rightQuestions / NumQuestion >= 0.5 && rightQuestions / NumQuestion < 0.7)
         {
-            Grade.text = "Норм";
+            Grade.text = "Неплохо, но есть куда расти!";
         }
         if (rightQuestions / NumQuestion >= 0.7 && rightQuestions / NumQuestion < 0.8)
         {
-            Grade.text = "Харош";
+            Grade.text = "Ты был близок к идеалу, молодец!";
         }
         if (rightQuestions / NumQuestion >= 0.8)
         {
-            Grade.text = "Мегахарош";
+            Grade.text = "Ты лучший, поздравляем!";
+            if (MaxCombo>=10)
+            {
+                Grade.text = "Гений хирурги!";
+            }
         }
         ComboResultsTxt.text = $"Комбо: {MaxCombo}";
         ScoresResultsTxt.text = $"Набрано очков: {Scores}";
