@@ -5382,7 +5382,7 @@ Transform:
   - {fileID: 3141663202756807088}
   - {fileID: 4825184322339962586}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315020589
 GameObject:
@@ -6154,7 +6154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 355170302}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1907462577}
+        m_TargetAssemblyTypeName: atlasManager, Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &355170302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10135,8 +10147,7 @@ GameObject:
   - component: {fileID: 582259303}
   - component: {fileID: 582259304}
   m_Layer: 5
-  m_Name: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435
-    \u043F\u043E \u043F\u043B\u043E\u0441\u043A\u043E\u0441\u0442\u0438"
+  m_Name: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043A\u0443\u043F\u0435\u0440\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19273,7 +19284,7 @@ GameObject:
   - component: {fileID: 1062459216}
   - component: {fileID: 1062459217}
   m_Layer: 5
-  m_Name: "\u0417\u0430\u0436\u0438\u043C\u044B \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
+  m_Name: "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26460,6 +26471,78 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1633670529}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1461032321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3440905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.404158
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580677502263656046, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926134896805291220, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+        \u043F\u0438\u043D\u0446\u0435\u0442"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 656d6715c1fd9ab42a9e01b5fa36592c, type: 3}
 --- !u!1 &1469122228
 GameObject:
   m_ObjectHideFlags: 0
@@ -31914,7 +31997,7 @@ PrefabInstance:
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1644673940619325420, guid: 5f16c3fbd8421d84ea2317f48882b8ac,
         type: 3}
@@ -32728,8 +32811,7 @@ GameObject:
   - component: {fileID: 1829145652}
   - component: {fileID: 1829145653}
   m_Layer: 5
-  m_Name: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435
-    \u043F\u043E \u0440\u0435\u0431\u0440\u0443"
+  m_Name: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0444\u0430\u043B\u044C\u043A\u0435\u0440\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34155,6 +34237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907462576}
   - component: {fileID: 1907462577}
+  - component: {fileID: 1907462578}
   m_Layer: 0
   m_Name: AtlasManager
   m_TagString: Untagged
@@ -34191,7 +34274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instrumentInfo:
   - instrumentName: "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433"
-    instrumentModel: {fileID: 5553985477056100925, guid: 42b4a7c451611d84bb2a95bea5a7c4e3,
+    instrumentModel: {fileID: 8215217083127855258, guid: e4439a81ca814404585045ec6f734f46,
       type: 3}
     instrumentDescription: "\u041A\u043E\u0440\u043D\u0446\u0430\u043D\u0433 (\u0437\u0430\u0436\u0438\u043C
       \u0413\u0440\u043E\u0441\u0441-\u041C\u0430\u0439\u0435\u0440\u0430) \u2014
@@ -34230,7 +34313,7 @@ MonoBehaviour:
       \u0432 \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435 \u0437\u0430\u0449\u0438\u0442\u043D\u043E\u0433\u043E
       \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430;"
   - instrumentName: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u043F\u0440\u044F\u043C\u044B\u0435"
-    instrumentModel: {fileID: 5631447621491227938, guid: 352c6b3864ea0fb4681b564ff8e8744b,
+    instrumentModel: {fileID: 8306142641521954435, guid: dc61bdaab76a7b14e88d6084d178b7fa,
       type: 3}
     instrumentDescription: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
       \u043D\u043E\u0436\u043D\u0438\u0446\u044B \u2014 \u043C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0438\u0439
@@ -34240,7 +34323,7 @@ MonoBehaviour:
       \u0445\u0440\u044F\u0449\u0435\u0439, \u0440\u0451\u0431\u0435\u0440, \u0430
       \u0442\u0430\u043A\u0436\u0435 \u043F\u043E\u043B\u044B\u0445 \u043E\u0440\u0433\u0430\u043D\u043E\u0432."
   - instrumentName: "\u0411\u0435\u043B\u044C\u0435\u0432\u044B\u0435 \u0446\u0430\u043F\u043A\u0438"
-    instrumentModel: {fileID: 8227143549583178039, guid: 299abd8142b251347916fc221970275f,
+    instrumentModel: {fileID: 5478820703828939556, guid: 9c2abc82e913aa148aef364c2cd2eccf,
       type: 3}
     instrumentDescription: "\u0411\u0435\u043B\u044C\u0435\u0432\u044B\u0435 \u0446\u0430\u043F\u043A\u0438
       \u043F\u0440\u0435\u0434\u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u044B
@@ -34305,7 +34388,7 @@ MonoBehaviour:
       \u0420\u0430\u0431\u043E\u0447\u0430\u044F \u0447\u0430\u0441\u0442\u044C \u043F\u0438\u043B\u044B
       \u043F\u043B\u043E\u0441\u043A\u0430\u044F."
   - instrumentName: "\u041F\u0438\u043D\u0446\u0435\u0442 \u0430\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
-    instrumentModel: {fileID: 448981847306379650, guid: c4745b31e4da73c4c9341451a6d872a1,
+    instrumentModel: {fileID: 2926134896805291220, guid: 656d6715c1fd9ab42a9e01b5fa36592c,
       type: 3}
     instrumentDescription: "\u0410\u043D\u0430\u0442\u043E\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u043F\u0438\u043D\u0446\u0435\u0442 \u0438\u043C\u0435\u0435\u0442 \u043D\u0430
@@ -34320,7 +34403,7 @@ MonoBehaviour:
       \u043D\u0430 \u043D\u0435\u0436\u043D\u044B\u0445 \u0442\u043A\u0430\u043D\u044F\u0445
       (\u043D\u0430 \u0416\u041A\u0422, \u0441\u043E\u0441\u0443\u0434\u0430\u0445)"
   - instrumentName: "\u0417\u0430\u0436\u0438\u043C\u044B \u041A\u043E\u0445\u0435\u0440\u0430"
-    instrumentModel: {fileID: 7744747168666273468, guid: 684944cf32f74144b96f2d9d7557a2ee,
+    instrumentModel: {fileID: 4738696181030664079, guid: 737b61a40bf20c64c8058536474368bd,
       type: 3}
     instrumentDescription: "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0445\u0435\u0440\u0430
       \u0438\u043C\u0435\u0435\u0442 \u043D\u0430 \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u044E\u0449\u0438\u0445
@@ -34329,7 +34412,7 @@ MonoBehaviour:
       \u0442\u043A\u0430\u043D\u0438, \u043D\u043E \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u0435\u0442
       \u0438\u0445 \u043F\u0440\u043E\u0447\u043D\u043E"
   - instrumentName: "\u0417\u0430\u0436\u0438\u043C\u044B \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430"
-    instrumentModel: {fileID: 127647119788261116, guid: d39f7c4e2c8408a42b1c32c6a3000b0d,
+    instrumentModel: {fileID: 1543060493058008917, guid: 717181d2762ab6c49baebeca7a935295,
       type: 3}
     instrumentDescription: "\u0417\u0430\u0436\u0438\u043C \u0411\u0438\u043B\u044C\u0440\u043E\u0442\u0430
       \u0438\u043C\u0435\u0435\u0442 \u043D\u0430 \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u044E\u0449\u0438\u0445
@@ -34338,7 +34421,7 @@ MonoBehaviour:
       \u0442\u043A\u0430\u043D\u0438, \u043D\u043E \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u0435\u0442
       \u0438\u0445 \u043D\u0435\u043F\u0440\u043E\u0447\u043D\u043E"
   - instrumentName: "\u0417\u0430\u0436\u0438\u043C \u043C\u043E\u0441\u043A\u0438\u0442"
-    instrumentModel: {fileID: 3190906578011773978, guid: ce6e2161c008a854f93401dceaaf94ca,
+    instrumentModel: {fileID: 6886192890728966972, guid: 5ecdf43093a464645acd9011e79e1025,
       type: 3}
     instrumentDescription: "\u0417\u0430\u0436\u0438\u043C \u0442\u0438\u043F\u0430
       \xAB\u041C\u043E\u0441\u043A\u0438\u0442\xBB \u0438\u043C\u0435\u0435\u0442
@@ -34348,7 +34431,7 @@ MonoBehaviour:
       \u0425\u043E\u043B\u0441\u0442\u0435\u0434\u0430"
   - instrumentName: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435
       \u043F\u043E \u0440\u0435\u0431\u0440\u0443"
-    instrumentModel: {fileID: 7746558367909298773, guid: 950868c64ea193244b863c4417dd416a,
+    instrumentModel: {fileID: 6823985316073516352, guid: 05e67a83bde435a42a2f8cd67b299d7d,
       type: 3}
     instrumentDescription: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
       \u043D\u043E\u0436\u043D\u0438\u0446\u044B \u2014 \u043C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0438\u0439
@@ -34361,7 +34444,7 @@ MonoBehaviour:
       \u0441 \u0438\u0437\u0433\u0438\u0431\u043E\u043C \u043F\u043E \u0440\u0435\u0431\u0440\u0443"
   - instrumentName: "\u041D\u043E\u0436\u043D\u0438\u0446\u044B \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u044B\u0435
       \u043F\u043E \u043F\u043B\u043E\u0441\u043A\u043E\u0441\u0442\u0438"
-    instrumentModel: {fileID: 7083609849035808891, guid: 72c21d7d8193a134aaa07d7f08a1c349,
+    instrumentModel: {fileID: 3315256398133503568, guid: 00ef5f0b63e3c8447978a59c19f86db7,
       type: 3}
     instrumentDescription: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
       \u043D\u043E\u0436\u043D\u0438\u0446\u044B \u2014 \u043C\u0435\u0434\u0438\u0446\u0438\u043D\u0441\u043A\u0438\u0439
@@ -34374,7 +34457,7 @@ MonoBehaviour:
       \u0441 \u0438\u0437\u0433\u0438\u0431\u043E\u043C \u043F\u043E \u043F\u043B\u0430\u0432\u043D\u043E\u0439
       \u0434\u0443\u0433\u0435"
   - instrumentName: "\u041F\u0438\u043D\u0446\u0435\u0442 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
-    instrumentModel: {fileID: 929621742785346285, guid: 16d86184c7f2e6546b442fb411e08206,
+    instrumentModel: {fileID: 5309070718387490872, guid: 58bce016f90a9d740b60fabc5a4835aa,
       type: 3}
     instrumentDescription: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
       \u043F\u0438\u043D\u0446\u0435\u0442\u044B, \u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F
@@ -34386,7 +34469,7 @@ MonoBehaviour:
       \u043A\u043E\u0436\u0443. \u041D\u043E \u043E\u043D\u0438 \u0442\u0440\u0430\u0432\u043C\u0438\u0440\u0443\u044E\u0442
       \u043D\u0435\u0436\u043D\u044B\u0435 \u0442\u043A\u0430\u043D\u0438"
   - instrumentName: "\u041F\u0438\u043D\u0446\u0435\u0442 \u0442\u0440\u0443\u0431\u0447\u0430\u0442\u044B\u0439"
-    instrumentModel: {fileID: 3033229052902508310, guid: 415795c7f61b16442ad104a366cc8299,
+    instrumentModel: {fileID: 1333816103679883879, guid: 942f83764b8809249ad76bb576163945,
       type: 3}
     instrumentDescription: "\u0425\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0435
       \u043F\u0438\u043D\u0446\u0435\u0442\u044B, \u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F
@@ -34584,7 +34667,7 @@ MonoBehaviour:
       \u0441\u0448\u0438\u0432\u0430\u043D\u0438\u044F \u043F\u043B\u043E\u0442\u043D\u044B\u0445
       \u0442\u043A\u0430\u043D\u0435\u0439, \u043A\u043E\u0436\u0438."
   - instrumentName: "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C"
-    instrumentModel: {fileID: 6263527737295723239, guid: 9f070e5ffbb0ad8469165274f7d2f26f,
+    instrumentModel: {fileID: 3451743245701048908, guid: 8f1d42b84da1b9243885e17153d67baa,
       type: 3}
     instrumentDescription: "\u0418\u0433\u043B\u043E\u0434\u0435\u0440\u0436\u0430\u0442\u0435\u043B\u044C
       \u2014 \u044D\u0442\u043E \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
@@ -34598,6 +34681,27 @@ MonoBehaviour:
   ItemAtlas: {fileID: 1945648626}
   description: {fileID: 1969661937}
   search: {fileID: 1354989205}
+  anim: {fileID: 0}
+--- !u!95 &1907462578
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907462574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1911325899
 GameObject:
   m_ObjectHideFlags: 0
@@ -39182,7 +39286,7 @@ GameObject:
   - component: {fileID: 2122141523}
   - component: {fileID: 2122141524}
   m_Layer: 5
-  m_Name: "\u0417\u0430\u0436\u0438\u043C\u044B \u041A\u043E\u0445\u0435\u0440\u0430"
+  m_Name: "\u0417\u0430\u0436\u0438\u043C \u041A\u043E\u0445\u0435\u0440\u0430"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

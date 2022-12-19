@@ -16,7 +16,8 @@ public class atlasManager : MonoBehaviour
     public GameObject search;
     private GameObject instrument; // появляющаяся моделька
     private Transform instrumentPos;
-    private Animator anim;
+    public Animator anim;
+    private bool animationCheck = false;
 
     public void instrumentChoose()
     {
@@ -36,11 +37,27 @@ public class atlasManager : MonoBehaviour
                 instrument.transform.rotation = new Quaternion(0, 0, 0, 0);
                 instrumentPos = ItemAtlas.transform;
                 instrument.transform.SetParent(instrumentPos, false);
-                Debug.Log(instrument.transform.position);
-                Debug.Log(instrument.transform.position);
+                Animator instrumentAnimator = instrument.AddComponent<Animator>() as Animator;
+                instrumentAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(nameButton);
                 // создание описания инструмента
                 description.GetComponentInChildren<Text>().text = instrumentInfo[i].instrumentDescription;
             }
+        }
+    }
+
+    public void PlayAnimation()
+    {
+        anim = instrument.GetComponent<Animator>();
+        if (!animationCheck)
+        {
+            anim.SetTrigger("PlayAnim");
+            animationCheck = true;
+        }
+        else
+        {
+            anim.ResetTrigger("PlayAnim");
+            anim.SetTrigger("PlayAnim");
+            animationCheck = true;
         }
     }
 
@@ -68,8 +85,8 @@ public class atlasManager : MonoBehaviour
                 instrument.transform.rotation = new Quaternion(0, 0, 0, 0);
                 instrumentPos = ItemAtlas.transform;
                 instrument.transform.SetParent(instrumentPos, false);
-                Debug.Log(instrument.transform.position);
-                Debug.Log(instrument.transform.position);
+                Animator instrumentAnimator = instrument.AddComponent<Animator>() as Animator;
+                instrumentAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(arg0);
                 // создание описания инструмента
                 description.GetComponentInChildren<Text>().text = instrumentInfo[i].instrumentDescription;
             }
