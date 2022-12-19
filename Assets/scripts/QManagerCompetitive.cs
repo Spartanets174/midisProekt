@@ -195,7 +195,7 @@ public class QManagerCompetitive : MonoBehaviour
             Grade.text = "Ты лучший, поздравляем!";
             if (MaxCombo>=10)
             {
-                Grade.text = "Гений хирурги!";
+                Grade.text = "Гений хирургии!";
             }
         }
         ComboResultsTxt.text = $"Комбо: {MaxCombo}";
